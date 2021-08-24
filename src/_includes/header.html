@@ -31,7 +31,6 @@
     {% assign html_pages=site.html_pages | where:"ref", page.ref | sort: 'lang' %}
     {% for html_page in html_pages %}
     {% if html_page.lang != page.lang %}
-    <div>{{ page.lang }}</div>
       <a href="{{ html_page.url }}" class="language_button">
         <button>{{ site.data.languages[html_page.lang].label }} {{ site.data.languages[html_page.lang].icon }}</button>
       </a>
