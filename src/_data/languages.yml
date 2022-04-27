@@ -1,6 +1,6 @@
-fr:
-  label: Français
-  icon: 🇫🇷
-en:
-  label: English
-  icon: 🇬🇧
+label:
+  en: English
+  fr: Français
+icon:
+  en: 🇬🇧
+  fr: 🇫🇷

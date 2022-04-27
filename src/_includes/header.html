@@ -28,13 +28,17 @@
       </div>
     </nav>
     {%- endif -%}
-    {% assign html_pages=site.html_pages | where:"ref", page.ref | sort: 'lang' %}
-    {% for html_page in html_pages %}
-    {% if html_page.lang != page.lang %}
-      <a href="{{ html_page.url }}" class="language_button">
-        <button>{{ site.data.languages[html_page.lang].label }} {{ site.data.languages[html_page.lang].icon }}</button>
+    {% for language in site.available_languages %}
+    {% if language != page.lang %}
+      <a href="/{{ language }}" class="language_button">
+        <button >{{ site.data.languages["label"][language] }} {{ site.data.languages["icon"][language] }}</button>
       </a>
     {% endif %}
     {% endfor %}
+    <!-- {% for collection in site.sections %}
+    <section>
+        <h1>{{ collection.section }}</h1>
+    </section>
+    {% endfor %} -->
   </div>
 </header>

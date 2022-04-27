@@ -6,3 +6,8 @@ layout: resume
 lang: fr
 href: index
 ---
+
+{% for section in site.sections %}
+  <h1>{{ section.section }}</h1>
+  <div>{{ section.content }}</div>
+{% endfor %}

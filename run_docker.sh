@@ -1,0 +1,1 @@
+docker run -it --rm --name github_page -v "$PWD/src:/srv/jekyll" -p 4000:4000 -p 35729:35729 jekyll/jekyll jekyll serve --trace --force_polling --livereload
