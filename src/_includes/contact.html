@@ -2,8 +2,8 @@
 
 <div class="container-md col">
     <h2 style="text-align: center;">{{ site.data.contact["name"] }}</h2>
-    <div class="row">
-        <div class="col align-self-center" style="text-align: center; min-width: 275px;">
+    <div class="row justify-content-evenly">
+        <div class="col col-5 align-self-center" style="text-align: center; min-width: 275px;">
             <div><span id="age"></span> ans</div>
             <div>France - Lille</div>
             <div>Mobile: <a href="tel:{{ site.data.contact["name"] }}">{{ site.data.contact["mobile"] }}</a></div>
@@ -12,7 +12,9 @@
                     <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
                 </svg> <span class="username">{{ site.github_username| escape }}</span></a>
         </div>
-        <img class="img-fluid rounded-circle portrait-img col-md-auto" src="/assets/images/portrait.jpg">
+        <div class="col-5">
+            <img class="img-fluid rounded-circle portrait-img col-md-auto" src="/assets/images/portrait.jpg">
+        </div>
     </div>
     <p style="text-align: center;">{{ site.data.contact["profile"][language] }}</p>
 </div>
