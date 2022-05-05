@@ -6,17 +6,15 @@
         <div class="col align-self-center" style="text-align: center; min-width: 275px;">
             <div><span id="age"></span> ans</div>
             <div>France - Lille</div>
-            <div>Mobile: <a href="tel:+33781734878">+33 7 81 73 48 78</a></div>
-            <div>Email: <a href="mailto:{{ site.email }}">corentin_ducatez@hotmail.fr</a></div>
+            <div>Mobile: <a href="tel:{{ site.data.contact["name"] }}">{{ site.data.contact["mobile"] }}</a></div>
+            <div>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
             <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg class="svg-icon">
                     <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
                 </svg> <span class="username">{{ site.github_username| escape }}</span></a>
         </div>
         <img class="img-fluid rounded-circle portrait-img col-md-auto" src="/assets/images/portrait.jpg">
     </div>
-    <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book.</p>
+    <p style="text-align: center;">{{ site.data.contact["profile"][language] }}</p>
 </div>
 <script>
     var today = new Date();

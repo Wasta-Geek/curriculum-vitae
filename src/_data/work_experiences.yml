@@ -4,13 +4,13 @@ section_title:
 content:
   niryo:
     title:
-      fr: Niryo  Novembre 2018 - Février 2022
-      en: Niryo  November 2018 - February 2022
+      fr: Niryo / Novembre 2018 - Février 2022
+      en: Niryo / November 2018 - February 2022
     description:
       fr: 
         - job_title: "Ingénieur Devops (Janvier 2021 - Février 2022)"
           description:
-            - "Mise en place de pipelines de tests / analyseurs de codes visant à améliorer la qualité de code && la stabilité des logiciels (Gitlab CI)"
+            - "Mise en place de pipelines de tests / analyseurs de codes visant à améliorer la qualité de code et la stabilité des logiciels (Gitlab CI)"
             - "Mise en place de pipelines Gitlab visant à faciliter le déploiement des différents logiciels (Gitlab CI)"
             - "Création d'images Docker pour uniformiser / déployer les environnements de développements (Docker)"
             - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes (EC2, s3, route 53, AWS IoT core)"
@@ -39,8 +39,8 @@ content:
             - "Development of the API / execution flow for a robot prototype (C++)"
   cepi_management:
     title:
-      fr: CEPI Management Avril 2017 - Juillet 2017
-      en: CEPI Management April 2017 - July 2017
+      fr: CEPI Management / Avril 2017 - Juillet 2017
+      en: CEPI Management / April 2017 - July 2017
     description:
       fr:
         - job_title: "[stage] Développeur Web"
@@ -56,8 +56,8 @@ content:
             - Complete redesign of the new website (design, ergonomy, fix currents problems, ...)
   promod:
     title:
-      fr: Promod Octobre 2015 - Décembre 2015
-      en: Promod October 2015 - December 2015
+      fr: Promod / Octobre 2015 - Décembre 2015
+      en: Promod / October 2015 - December 2015
     description:
       fr:
         - job_title: "[stage] Technicien de maintenance en Informatique"

@@ -1,33 +1,42 @@
 {%- assign language = page.lang -%}
 
-<h2>{{ site.data.skills_lang["section_title"][language] }}</h2>
+<h2>{{ site.data.skills["section_title"][language] }}</h2>
 
-<h3>{{ site.data.skills_lang["programming_languages_subsection"][language] }}</h3>
-
-<ul>
-    <li>python</li>
-    <li>C/C++</li>
-    <li>bash</li>
-    <li>HTML/CSS/JS</li>
-</ul>
-
-<h3>{{ site.data.skills_lang["tools_subsection"][language] }}</h3>
-<ul>
-    <li>Gitlab CI</li>
-    <li>Docker</li>
-</ul>
-
-<h3>{{ site.data.skills_lang["frameworks_subsection"][language] }}</h3>
-<ul>
-    <li>ROS (Robot Operating System)</li>
-    <li>Angular</li>
-</ul>
-
-<h3>{{ site.data.skills_lang["methodologies_subsection"][language] }}</h3>
-
-<ul>
-    <li>Agile / Scrum</li>
-    <li>Code / Merge review</li>
-</ul>
-
-<p>{{ site.data.skills_lang["languages_subsection"][language] }}</p>
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col col-5">
+            <h3 class="text-center">{{ site.data.skills["programming_languages_subsection"][language] }}</h3>
+            <ul>
+                {%- for program_language in site.data.skills["programming_languages_list"] -%}
+                <li>{{ program_language }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        <div class="col col-5">
+            <h3 class="text-center">{{ site.data.skills["various_subsection"][language] }}</h3>
+            <ul class="align-self-center">
+                {%- for various_skill in site.data.skills["various_list"][language] -%}
+                <li>{{ various_skill }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </div>
+    <div class="row justify-content-evenly">
+        <div class="col col-5">
+            <h3 class="text-center">{{ site.data.skills["frameworks_subsection"][language] }}</h3>
+            <ul>
+                {%- for framework in site.data.skills["frameworks_list"] -%}
+                <li>{{ framework }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        <div class="col col-5">
+            <h3 class="text-center">{{ site.data.skills["tools_subsection"][language] }}</h3>
+            <ul>
+                {%- for tool in site.data.skills["tools_list"] -%}
+                <li>{{ tool }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </div>
+</div>

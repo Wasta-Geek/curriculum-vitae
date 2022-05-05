@@ -1,0 +1,35 @@
+section_title:
+  en: About me
+  fr: À propos de moi
+hobbies_subsection:
+  en: Hobbies
+  fr: Passions
+hobbies_list:
+  en:
+    - Music
+    - Video games
+    - Hiking
+  fr:
+    - Musique
+    - Jeux vidéos
+    - Randonnées
+languages_subsection:
+  en: Languages
+  fr: Langues
+languages_list:
+  en:
+    name:
+      en: English
+      fr: Anglais
+    skill:
+      en: Professional
+      fr: Courant
+    icon: 🇬🇧
+  fr:
+    name:
+      en: French
+      fr: Français
+    skill:
+      en: Native language
+      fr: Langue maternelle
+    icon: 🇫🇷

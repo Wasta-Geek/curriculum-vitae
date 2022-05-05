@@ -1,9 +1,14 @@
 {%- assign language = page.lang -%}
 
-<h2>{{ site.data.education_lang["section_title"][language] }}</h2>
+<h2>{{ site.data.education["section_title"][language] }}</h2>
 
-<h3>{{ site.data.education_lang["epitech_title"][language] }}</h3>
-<h4>{{ site.data.education_lang["epitech_location"][language] }} | {{ site.data.education_lang["epitech_date"][language] }}</h4>
+<dl>
+    <dt>{{ site.data.education["epitech_title"][language] }}</dt>
+    <dd>{{ site.data.education["epitech_location"][language] }} | {{ site.data.education["epitech_date"][language] }}
+    </dd>
+</dl>
 
-<h3>{{ site.data.education_lang["harbin_title"][language] }}</h3>
-<h4>{{ site.data.education_lang["harbin_location"][language] }} | {{ site.data.education_lang["harbin_date"][language] }}</h4>
+<dl>
+    <dt>{{ site.data.education["harbin_title"][language] }}</dt>
+    <dd>{{ site.data.education["harbin_location"][language] }} | {{ site.data.education["harbin_date"][language] }}</dd>
+</dl>
