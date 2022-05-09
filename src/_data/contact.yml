@@ -1,7 +1,18 @@
 name: "Corentin Ducatez"
-birth_date: "1996-09-09"
-location: "France - Lille"
+age_text:
+  en: "Age"
+  fr: "Age"
+address_text:
+  en: "Address"
+  fr: "Addresse"
+address: "France - Lille"
+mobile_text:
+  en: "Mobile"
+  fr: "Téléphone"
 mobile: "+33 7 81 73 48 78"
+email_text:
+  en: "Email"
+  fr: "e-mail"
 email: "corentin_ducatez@hotmail.fr"
 profile:
   en: "After 2 years spent as a software developper (C++ / Python), I have then oriented myself to a internal job as \"Devops-oriented Engineer\" for 1 year.\
