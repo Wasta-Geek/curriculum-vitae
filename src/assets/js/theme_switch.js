@@ -11,22 +11,26 @@
 
   for (var index = 0; index < bg_light_list.length; index++)
   {
-    bg_light_list[index].className = bg_light_list[index].className.replace(/bg-light/g, "bg-dark");
+    if (!bg_light_list[index].className.includes("no-theme-switch"))
+      bg_light_list[index].className = bg_light_list[index].className.replace(/bg-light/g, "bg-dark");
   }
 
   for (var index = 0; index < bg_dark_list.length; index++)
   {
-    bg_dark_list[index].className = bg_dark_list[index].className.replace(/bg-dark/g, "bg-light");
+    if (!bg_dark_list[index].className.includes("no-theme-switch"))
+      bg_dark_list[index].className = bg_dark_list[index].className.replace(/bg-dark/g, "bg-light");
   }
 
   for (var index = 0; index < text_light_list.length; index++)
   {
-    text_light_list[index].className = text_light_list[index].className.replace(/text-light/g, "text-dark");
+    if (!text_light_list[index].className.includes("no-theme-switch"))
+      text_light_list[index].className = text_light_list[index].className.replace(/text-light/g, "text-dark");
   }
 
   for (var index = 0; index < text_dark_list.length; index++)
   {
-    text_dark_list[index].className = text_dark_list[index].className.replace(/text-dark/g, "text-light");
+    if (!text_dark_list[index].className.includes("no-theme-switch"))
+      text_dark_list[index].className = text_dark_list[index].className.replace(/text-dark/g, "text-light");
   }
 }
 

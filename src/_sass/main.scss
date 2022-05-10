@@ -7,81 +7,148 @@
     }
     .portrait-img
     {
-        max-height: 200px;
+        max-width: 200px;
     }
-}
 
-main
-{
-    max-width: 850px;
+    .bg-light
+    {
+        background-color: white !important;
+    }
+
+    a
+    {
+        color: white;
+    }
+
+    h2
+    {
+        font-size: 1.375rem !important;
+    }
+
+    h3
+    {
+        font-size: 1.125rem !important;
+    }
+    
+    li
+    {
+        font-size: 0.9rem !important;
+    }
+    
+    @page {
+        size: 210mm 297mm  !important;
+        margin: 0  !important;
+      }
+    html, body, main
+    {
+        margin: 0  !important;
+    }
 }
 
 @media (max-width: 850px)
 {
     html {
-        font: 0.8rem var(--bs-font-sans-serif);
+        font-size: 0.9rem;
+    }
+
+    h2
+    {
+        font-size: 1.5rem;
+    }
+
+    h3
+    {
+        font-size: 1.25rem;
     }
 }
 
 @media (min-width: 850px)
 {
-    main
+    .main-resume
     {
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
     }
 
-    html {
-        font: 1rem var(--bs-font-sans-serif);
+    .left_part_resume
+    {
+        max-width: 550px;
+    }
+    
+    h2
+    {
+        font-size: 1.625rem;
+    }
+
+    h3
+    {
+        font-size: 1.375rem;
     }
 }
 
 @media (min-width: 1200px)
 {
-    html {
-        font: 1.2rem var(--bs-font-sans-serif);
+    ul
+    {
+        white-space: nowrap;
     }
 
-    main
+    h2
     {
-        max-width: 1000px;
+        font-size: 1.75rem;
+    }
+
+    h3
+    {
+        font-size: 1.5rem;
     }
 }
 
 @media (min-width: 1400px)
 {
     html {
-        font: 1.3rem var(--bs-font-sans-serif);
+        font: 1.1rem var(--bs-font-sans-serif);
     }
+}
 
-    main
-    {
-        max-width: 1200px;
-    }
+html, body, main
+{
+    width: 100%;
+    height: 100%;
 }
 
 .main-resume
 {
-    padding-left: 5%;
-    padding-right: 5%
+    height: 100%;
+}
+
+.left_part_resume
+{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.right_part_resume
+{
+    margin-top: 10px;
 }
 
 h2
 {
     font-weight: bold;
+    text-align: center;
 }
 
 h3
 {
-    margin-bottom: 5px;
+    margin-bottom: 2.5px;
     text-decoration: underline;
 }
 
 dt
 {
     font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 2.5px;
+    margin-top: 2.5px;
 }
 
 dd
@@ -89,21 +156,19 @@ dd
     margin: 0px 0px 0px 40px;
 }
 
+dl
+{
+    margin: 0px;
+}
+
 a
 {
     font-weight: bold;
 }
 
-.col
-{
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .portrait-img
 {
-    min-width: 150px;
-    display: block;
+    max-width: 300px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -14,14 +14,12 @@ content:
             - "Mise en place de pipelines Gitlab visant à faciliter le déploiement des différents logiciels (Gitlab CI)"
             - "Création d'images Docker pour uniformiser / déployer les environnements de développements (Docker)"
             - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes (EC2, s3, route 53, AWS IoT core)"
-        - job_title: "Développeur R&D (Septembre 2019 - Octobre 2020)"
+        - job_title: "Développeur R&D (Novembre 2018 - Octobre 2020)"
           description:
             - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve (C++ / QT - QML)"
             - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... (Python / ROS)"
-        - job_title: "[Alternance / stage] Développeur C++ Qt (Novembre 2018 - Septembre 2019)"
-          description:
-            - "Développement d'une IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
             - "Développement de la partie API / logique d'exécution d'un robot prototype (C++)"
+            - "Développement d'une IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
       en:
         - job_title: "Devops Engineer (January 2021 - February 2022)"
           description:
