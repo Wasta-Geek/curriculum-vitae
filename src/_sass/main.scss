@@ -20,25 +20,23 @@
         color: white;
     }
 
-    h2
+    .left_part_resume_content
     {
-        font-size: 1.375rem !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    
+    html {
+        font-size: 0.825rem !important;
     }
 
-    h3
-    {
-        font-size: 1.125rem !important;
-    }
-    
-    li
-    {
-        font-size: 0.9rem !important;
-    }
-    
     @page {
-        size: 210mm 297mm  !important;
-        margin: 0  !important;
-      }
+        width:  210mm !important;
+        height: 297mm !important;
+        margin: 0 10px 0 0 !important;
+        padding: 0 !important;
+    }
+
     html, body, main
     {
         margin: 0  !important;
@@ -48,17 +46,17 @@
 @media (max-width: 850px)
 {
     html {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     h2
     {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     h3
     {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 }
 
@@ -73,15 +71,20 @@
     {
         max-width: 550px;
     }
-    
+
+
+    html {
+        font-size: 1rem;
+    }
+
     h2
     {
-        font-size: 1.625rem;
+        font-size: 1.375rem;
     }
 
     h3
     {
-        font-size: 1.375rem;
+        font-size: 1.125rem;
     }
 }
 
@@ -94,12 +97,12 @@
 
     h2
     {
-        font-size: 1.75rem;
+        font-size: 1.625rem;
     }
 
     h3
     {
-        font-size: 1.5rem;
+        font-size: 1.375rem;
     }
 }
 
@@ -107,6 +110,15 @@
 {
     html {
         font: 1.1rem var(--bs-font-sans-serif);
+    }
+    h2
+    {
+        font-size: 1.75rem;
+    }
+
+    h3
+    {
+        font-size: 1.5rem;
     }
 }
 
@@ -127,6 +139,12 @@ html, body, main
     padding-top: 10px;
 }
 
+.left_part_resume_content
+{
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
 .right_part_resume
 {
     margin-top: 10px;
@@ -142,6 +160,7 @@ h3
 {
     margin-bottom: 2.5px;
     text-decoration: underline;
+    font-weight: 600;
 }
 
 dt
@@ -169,8 +188,6 @@ a
 .portrait-img
 {
     max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .background
