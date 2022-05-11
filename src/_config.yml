@@ -35,8 +35,6 @@ available_languages:
   - fr
   - en
 
-# sass:
-#   load_paths:
-#     - _sass
-#     # Dirty as hell but didn't find any other way
-#     - /usr/gem/gems/bootstrap-5.1.3/assets/stylesheets/
+## Github pages options
+domain: corentin-ducatez-curriculum.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://corentin-ducatez-curriculum.github.io  # the base hostname and protocol for your site, e.g. http://example.com
