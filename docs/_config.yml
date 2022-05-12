@@ -36,8 +36,8 @@ available_languages:
   - en
 
 ## Github pages options
-domain: corentin-ducatez-curriculum.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://corentin-ducatez-curriculum.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+domain: wasta-geek.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://wasta-geek.github.io/curriculum-vitae/  # the base hostname and protocol for your site, e.g. http://example.com
 
 sass:
   sass_dir: _sass
