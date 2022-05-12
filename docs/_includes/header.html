@@ -4,7 +4,7 @@
   {%- assign title_language_key = "title_" | append: page.lang -%}
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light no-theme-switch">
-      <div class="container">
+      <div class="container row justify-content-start">
         {% for language in site.available_languages %}
         {% if language != page.lang %}
         <a href="/{{ language }}" class="language_button">
