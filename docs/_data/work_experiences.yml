@@ -18,8 +18,8 @@ content:
           description:
             - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve (C++ / QT - QML)"
             - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... (Python / ROS)"
-            - "Développement de la partie API / logique d'exécution d'un robot prototype (C++)"
-            - "Développement d'une IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
+            - "Développement de la partie API / logique d'exécution pour un prototype robot (C++)"
+            - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
       en:
         - job_title: "Devops Engineer (January 2021 - February 2022)"
           description:
@@ -31,10 +31,8 @@ content:
           description:
             - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
             - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ..."
-        - job_title: "[apprenticeship / internship] Qt / C++ developper"
-          description:
-            - "Development from scratch of an IHM aimed to controls a robot (C++ / Qt - QML)"
             - "Development of the API / execution flow for a robot prototype (C++)"
+            - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
   cepi_management:
     title:
       fr: CEPI Management / Avril 2017 - Juillet 2017
