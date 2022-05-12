@@ -7,7 +7,7 @@
       <div class="container row justify-content-start">
         {% for language in site.available_languages %}
         {% if language != page.lang %}
-        <a href="/{{ language }}" class="language_button">
+        <a href="{{ language | relative_url }}" class="language_button">
           <button class="btn bg-dark text-light no-theme-switch">{{ site.data.languages["label"][language] }} {{ site.data.languages["icon"][language] }}</button>
         </a>
         {% endif %}
