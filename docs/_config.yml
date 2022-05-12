@@ -24,7 +24,7 @@ email: corentin_ducatez@hotmail.fr
 description: >- # this means to ignore newlines until "baseurl:"
   This is my online multi-language resume as github pages.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://wasta-geek.github.io/curriculum-vitae" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  wasta-geek
 
 ## Theme options
@@ -37,7 +37,7 @@ available_languages:
 
 ## Github pages options
 domain: wasta-geek.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://wasta-geek.github.io/curriculum-vitae/  # the base hostname and protocol for your site, e.g. http://example.com
+url: https://wasta-geek.github.io/curriculum-vitae  # the base hostname and protocol for your site, e.g. http://example.com
 
 sass:
   sass_dir: _sass
