@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
+      - 'puppeteer_build_pdf.js'
 
 env:
   IMAGE_BASE_NAME: puppeteer_build_pdf
