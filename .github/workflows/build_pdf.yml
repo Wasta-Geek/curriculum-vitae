@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'docs/**'
+  workflow_call:
 
 env:
   SCRIPT_PATH: /home/pptruser/puppeteer_build_pdf.js
