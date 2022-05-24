@@ -29,6 +29,8 @@ RUN npm init -y &&  \
     npm i puppeteer \
     && mkdir -p /home/pptruser/Downloads
 
+# Puppeteer user part was deleted because it prevents some github actions to runs properly
+
 ## Custom part
 ARG HOME=/home
 COPY "puppeteer_build_pdf.js" "$HOME"
