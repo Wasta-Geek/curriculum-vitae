@@ -38,4 +38,4 @@ const puppeteer = require('puppeteer');
   await browser.close();
   console.log(`Your pdf was successfully created at path: ${ pdf_path }`)
   return pdf
-})()
+})();
