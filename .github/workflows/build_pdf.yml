@@ -10,15 +10,16 @@ env:
 jobs:
   build_pdf_files:
     runs-on: ubuntu-latest
-    container: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
+        uses: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
         run: |
           node ${{ env.SCRIPT_PATH }} language=fr
       - name: Build EN pdf
+        uses: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
         run: |
           node ${{ env.SCRIPT_PATH }} language=en
       - name: Commit files
