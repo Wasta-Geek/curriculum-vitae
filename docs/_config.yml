@@ -29,7 +29,7 @@ github_username:  wasta-geek
 
 ## Theme options
 show_downloads: true
-google_analytics: [Your Google Analytics tracking ID]
+google_analytics: "G-163ZR9TR9F"
 
 available_languages:
   - fr
