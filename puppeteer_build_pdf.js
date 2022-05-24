@@ -12,7 +12,7 @@ const puppeteer = require('puppeteer');
     console.log("No language provided, language set to 'en' by default")
   }
 
-  const pdf_path = `/home/_site/${ language }.pdf`
+  const pdf_path = `/home/${ language }.pdf`
   const browser = await puppeteer.launch({
     headless: true,
     args:['--no-sandbox'] });
