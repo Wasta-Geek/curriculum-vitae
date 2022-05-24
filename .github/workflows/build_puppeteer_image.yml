@@ -33,3 +33,6 @@ jobs:
         with:
           push: true
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+  call-build-workflow:
+    # Call build pdf workflow everytime the docker image is being built
+    uses: ./.github/workflows/build_pdf.yml
