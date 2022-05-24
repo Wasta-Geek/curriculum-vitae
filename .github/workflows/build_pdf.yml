@@ -6,7 +6,7 @@ on:
   workflow_call:
 
 env:
-  SCRIPT_PATH: /home/pptruser/puppeteer_build_pdf.js
+  SCRIPT_PATH: /home/puppeteer_build_pdf.js
 
 jobs:
   build_pdf_files:
