@@ -1,0 +1,33 @@
+name: build_pdf
+on:
+  push:
+    paths:
+      - 'docs/**'
+
+env:
+  IMAGE_NAME: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
+  SCRIPT_PATH: /home/pptruser/puppeteer_build_pdf.js
+
+jobs:
+  build_docker_image:
+    runs-on: ${{ env.IMAGE_NAME }}
+    steps:
+      - uses: actions/checkout@v3
+        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - name: Build FR pdf
+        run: |
+          node ${{ SCRIPT_PATH }} language=fr
+      - name: Build EN pdf
+        run: |
+          node ${{ SCRIPT_PATH }} language=en
+      - name: Commit files
+        run: |
+          git config --local user.email "42103905+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git status
+      #     git commit -m "Add changes"
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}
