@@ -14,6 +14,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build FR pdf
         uses: docker://ghcr.io/wasta-geek/puppeteer_build_pdf:latest
         with:
