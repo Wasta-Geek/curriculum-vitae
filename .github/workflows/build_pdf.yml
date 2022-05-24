@@ -13,7 +13,8 @@ jobs:
     runs-on: ${{ env.IMAGE_NAME }}
     steps:
       - uses: actions/checkout@v3
-        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+        with:
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
         run: |
           node ${{ SCRIPT_PATH }} language=fr
