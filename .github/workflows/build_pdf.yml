@@ -16,12 +16,12 @@ jobs:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
         uses: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
-        run: |
-          node ${{ env.SCRIPT_PATH }} language=fr
+        with:
+          arg: ls && pwd
       - name: Build EN pdf
         uses: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
-        run: |
-          node ${{ env.SCRIPT_PATH }} language=en
+        with:
+          args: node ${{ env.SCRIPT_PATH }} language=en
       - name: Commit files
         run: |
           git config --local user.email "42103905+github-actions[bot]@users.noreply.github.com"
