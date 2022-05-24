@@ -9,7 +9,8 @@ env:
 
 jobs:
   build_pdf_files:
-    runs-on: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
+    runs-on: ubuntu-latest
+    container: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
       - uses: actions/checkout@v3
         with:
