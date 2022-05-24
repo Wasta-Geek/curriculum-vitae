@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer')
-const path = require("path");
 
 (async function printPDF() {
   var language = "en"
@@ -13,11 +12,13 @@ const path = require("path");
     console.log("No language provided, language set to 'en' by default")
   }
 
-  const pdf_path = `/home/${ language }.pdf`
-  const browser = await puppeteer.launch({ headless: true });
-  const htmlFile = path.resolve(`./home/_site/${ language }/index.html`);
+  const pdf_path = `/home/_site/${ language }.pdf`
+  const browser = await puppeteer.launch({
+    headless: true,
+    args:['--no-sandbox'] });
+  const url = "https://wasta-geek.github.io/curriculum-vitae/"
   const page = await browser.newPage();
-  await page.goto("file://" + htmlFile, { waitUntil: 'networkidle0' }).catch(async function (error) {
+  await page.goto(`${ url }/${ language}`, { waitUntil: 'networkidle0' }).catch(async function (error) {
     console.log(error)
     await browser.close();
     process.exit(1)
