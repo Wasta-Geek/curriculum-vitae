@@ -51,9 +51,9 @@ jobs:
     steps:
       - name: Register with credentials
         run: |
-          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ env.environment.name }}
-          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ env.environment.name }}
-          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ env.environment.name }}
-          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ env.environment.name }}
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ jobs[${{ GITHUB_JOB }}] }}
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ jobs[${{ GITHUB_JOB }}] }}
+          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ jobs[${{ GITHUB_JOB }}] }}
+          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ jobs[${{ GITHUB_JOB }}] }}
       - name: Upload FR pdf
-        run: aws s3api list-object-versions --bucket ${{ env.BUCKET_NAME }}
+        run: aws s3api list-object-versions --bucket ${{ secrets.BUCKET_NAME }}
