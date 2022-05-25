@@ -52,7 +52,6 @@ jobs:
       - name: test
         run: |
           echo ${{ github.job }}
-          echo ${{ environment.name }}
           echo ${{ upload_pdf_to_s3.environment.name }}
           echo ${{ github.jobs[github.job] }}
           echo ${{ github.jobs[github.job].environment }}
