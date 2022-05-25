@@ -18,8 +18,8 @@ jobs:
       - name: test stuff
         run: |
           echo ${{ github.job }}
-          echgo ${{ jobs }}
-          echo ${{ jobs.${{ github.job }}.environment }}
+          echo ${{ github.job }}
+          echo ${{ env.jobs.${{ github.job }}.environment }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
@@ -34,9 +34,9 @@ jobs:
     steps:
       - name: Register with credentials
         run: |
-          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ jobs.${{ github.job }}.environment }}
-          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ jobs.${{ github.job }}.environment }}
-          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ jobs.${{ github.job }}.environment }}
-          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ jobs.${{ github.job }}.environment }}
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
+          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
+          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
       - name: Upload FR pdf
         run: aws s3api list-object-versions --bucket ${{ env.BUCKET_NAME }}
