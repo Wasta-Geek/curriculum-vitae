@@ -7,6 +7,7 @@ on:
 
 env:
   SCRIPT_PATH: /home/puppeteer_build_pdf.js
+  BUCKET_NAME: corentin-ducatez-resume-bucket
 
 jobs:
   build_pdf_files:
@@ -14,6 +15,11 @@ jobs:
     container: 
       image: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
+      - name: test stuff
+        run: |
+          echo ${{ github.job }}
+          echgo ${{ jobs }}
+          echo ${{ jobs.${{ github.job }}.environment }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
@@ -21,14 +27,16 @@ jobs:
         run: node ${{ env.SCRIPT_PATH }} language=fr
       - name: Build EN pdf
         run: node ${{ env.SCRIPT_PATH }} language=en
-      - name: Commit files
+  upload_pdf_to_s3:
+    runs-on: ubuntu-latest
+    container:
+      image: amazon/aws-cli
+    steps:
+      - name: Register with credentials
         run: |
-          git config --local user.email "42103905+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git status
-      #     git commit -m "Add changes"
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ jobs.${{ github.job }}.environment }}
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ jobs.${{ github.job }}.environment }}
+          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ jobs.${{ github.job }}.environment }}
+          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ jobs.${{ github.job }}.environment }}
+      - name: Upload FR pdf
+        run: aws s3api list-object-versions --bucket ${{ env.BUCKET_NAME }}
