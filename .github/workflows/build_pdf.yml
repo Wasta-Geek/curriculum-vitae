@@ -44,16 +44,23 @@ jobs:
     needs:
       - build_pdf_files
       - set_environment_name
-    container:
-      image: amazon/aws-cli
+    # container:
+    #   image: amazon/aws-cli
     environment:
       name: ${{needs.set_environment_name.outputs.environment_name}}
     steps:
-      - name: Register with credentials
+      - name: test
         run: |
-          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ github.jobs[github.job].environment }}
-          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ github.jobs[github.job].environment }}
-          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ github.jobs[github.job].environment }}
-          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ github.job.environment }}
-      - name: Upload FR pdf
-        run: aws s3api list-object-versions --bucket ${{ secrets.BUCKET_NAME }}
+          echo ${{ github.job }}
+          echo ${{ github.job.environment }}
+          echo ${{ github.jobs }}
+          echo ${{ github.jobs[github.job] }}
+          echo ${{ github.jobs[github.job].environment }}
+    #   - name: Register with credentials
+    #     run: |
+    #       aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ github.jobs[github.job].environment }}
+    #       aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ github.jobs[github.job].environment }}
+    #       aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ github.jobs[github.job].environment }}
+    #       aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ github.job.environment }}
+    #   - name: Upload FR pdf
+    #     run: aws s3api list-object-versions --bucket ${{ secrets.BUCKET_NAME }}
