@@ -1,13 +1,16 @@
 name: build_pdf
 on:
   push:
+    branches:
+      - master
+      - develop
+      - gh_action_build_pdf
     paths:
       - 'docs/**'
   workflow_call:
 
 env:
   SCRIPT_PATH: /home/puppeteer_build_pdf.js
-  BUCKET_NAME: corentin-ducatez-resume-bucket
 
 jobs:
   build_pdf_files:
@@ -15,11 +18,16 @@ jobs:
     container: 
       image: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
-      - name: test stuff
+      - name: Some check on branch
         run: |
-          echo ${{ github.job }}
-          echo ${{ github.job }}
-          echo ${{ env.jobs.${{ github.job }}.environment }}
+          echo "Running on branch ${{ github.ref }}"
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            echo "::set-output name=env_name::Production"
+          else
+            echo "::set-output name=env_name::Staging"
+          fi
+      - name: test stuff
+        run: echo ${{ env.env_name }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
@@ -34,9 +42,9 @@ jobs:
     steps:
       - name: Register with credentials
         run: |
-          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
-          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
-          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
-          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ env.jobs.${{ github.job }}.environment }}
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}"
+          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}"
       - name: Upload FR pdf
         run: aws s3api list-object-versions --bucket ${{ env.BUCKET_NAME }}
