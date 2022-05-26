@@ -53,6 +53,8 @@ jobs:
       image: amazon/aws-cli
     environment:
       name: ${{ needs.set_environment_name.outputs.environment_name }}
+    env: 
+      AWS_EC2_METADATA_DISABLED: true
     steps:
       - name: Register with credentials
         run: |
