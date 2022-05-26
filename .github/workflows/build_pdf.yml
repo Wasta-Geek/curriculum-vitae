@@ -67,6 +67,6 @@ jobs:
         with:
           name: pdf-files
       - name: Upload FR pdf
-        run: aws s3 cp fr.pdf s3://${{ secrets.AWS_S3_BUCKET }}
+        run: aws s3 cp fr.pdf s3://${{ secrets.AWS_S3_BUCKET }} --profile ${{ needs.set_environment_name.outputs.environment_name }}
       - name: Upload EN pdf
-        run: aws s3 cp en.pdf s3://${{ secrets.AWS_S3_BUCKET }}
+        run: aws s3 cp en.pdf s3://${{ secrets.AWS_S3_BUCKET }} --profile ${{ needs.set_environment_name.outputs.environment_name }}
