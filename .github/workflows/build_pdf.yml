@@ -56,4 +56,4 @@ jobs:
           aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{needs.set_environment_name.outputs.environment_name}}
           aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{needs.set_environment_name.outputs.environment_name}}
       - name: Upload FR pdf
-        run: aws s3api list-object-versions --bucket ${{ secrets.BUCKET_NAME }}
+        run: aws s3api list-object-versions --bucket ${{ secrets.AWS_S3_BUCKET }}
