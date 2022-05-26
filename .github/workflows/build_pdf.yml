@@ -40,7 +40,6 @@ jobs:
       - name: Build EN pdf
         run: node ${{ env.SCRIPT_PATH }} language=en
   upload_pdf_to_s3:
-    id: upload_pdf_to_s3
     runs-on: ubuntu-latest
     needs:
       - build_pdf_files
