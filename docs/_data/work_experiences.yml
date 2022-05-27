@@ -26,7 +26,7 @@ content:
             - "Setups tests pipelines for better code quality and software stability"
             - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
             - "Builds of docker images to uniformize / deploys development environments (Docker)"
-            - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core))"
+            - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core)"
         - job_title: R&D developper (September 2019 - October 2020)
           description:
             - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
