@@ -3,7 +3,7 @@
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   {%- assign title_language_key = "title_" | append: page.lang -%}
 
-    <nav class="navbar navbar-text navbar-dark bg-dark text-light no-theme-switch" style="padding-left: 10px; padding-right: 10px;">
+    <nav class="navbar navbar-text navbar-dark bg-dark text-light no-theme-switch navbar-header">
       
         {% for language in site.available_languages %}
         {% if language != page.lang %}
