@@ -23,7 +23,7 @@ content:
       en:
         - job_title: "Devops Engineer (January 2021 - February 2022)"
           description:
-            - "Setups tests pipelines for better code quality and software stability"
+            - "Setups tests pipelines for better code quality and software stability (Gitlab CI)"
             - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
             - "Builds of docker images to uniformize / deploys development environments (Docker)"
             - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core)"
