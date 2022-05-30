@@ -27,7 +27,7 @@ content:
             - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
             - "Builds of docker images to uniformize / deploys development environments (Docker)"
             - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core)"
-        - job_title: R&D developper (September 2019 - October 2020)
+        - job_title: R&D developer (September 2019 - October 2020)
           description:
             - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
             - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ..."
@@ -45,7 +45,7 @@ content:
             - Correction de bugs et amélioration de la vitesse de chargement des pages
             - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels)
       en:
-        - job_title: "[internship] Web developper"
+        - job_title: "[internship] Web developer"
           description:
             - New functionalities and some ergonomy improvements
             - Bug fixes and improvements of the loading page times
