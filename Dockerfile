@@ -27,20 +27,12 @@ RUN apt-get update \
 # Install puppeteer so it's available in the container.
 RUN npm init -y &&  \
     npm i puppeteer \
-    # Add user so we don't need --no-sandbox.
-    # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
-    && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /node_modules \
-    && chown -R pptruser:pptruser /package.json \
-    && chown -R pptruser:pptruser /package-lock.json
+    && mkdir -p /home/pptruser/Downloads
 
-# Run everything after as non-privileged user.
-USER pptruser
+# Puppeteer user part was deleted because it prevents some github actions to runs properly
 
 ## Custom part
-ARG HOME=/home/pptruser
+ARG HOME=/home
 COPY "puppeteer_build_pdf.js" "$HOME"
 ##
 

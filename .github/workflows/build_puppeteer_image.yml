@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
+      - 'puppeteer_build_pdf.js'
 
 env:
   IMAGE_BASE_NAME: puppeteer_build_pdf
@@ -33,3 +34,7 @@ jobs:
         with:
           push: true
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+  call-build-workflow:
+    needs: build_docker_image
+    # Call build pdf workflow everytime the docker image is being built
+    uses: "./.github/workflows/build_pdf.yml"
