@@ -29,6 +29,7 @@ github_username:  wasta-geek
 
 aws_s3_url: https://corentin-ducatez-resume-bucket-staging.s3.eu-west-3.amazonaws.com
 
+seek_a_job: true
 
 ## Theme options
 show_downloads: true
