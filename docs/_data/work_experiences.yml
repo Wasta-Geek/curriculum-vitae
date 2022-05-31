@@ -1,0 +1,67 @@
+section_title:
+  fr: Expériences professionnelles
+  en: Work experiences
+content:
+  niryo:
+    title:
+      fr: Niryo / Novembre 2018 - Février 2022
+      en: Niryo / November 2018 - February 2022
+    description:
+      fr: 
+        - job_title: "Ingénieur Devops (Janvier 2021 - Février 2022)"
+          description:
+            - "Mise en place de pipelines de tests / analyseurs de codes visant à améliorer la qualité de code et la stabilité des logiciels (Gitlab CI)"
+            - "Mise en place de pipelines Gitlab visant à faciliter le déploiement des différents logiciels (Gitlab CI)"
+            - "Création d'images Docker pour uniformiser / déployer les environnements de développements (Docker)"
+            - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes (EC2, s3, route 53, AWS IoT core)"
+        - job_title: "Développeur R&D (Novembre 2018 - Octobre 2020)"
+          description:
+            - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve (C++ / QT - QML)"
+            - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... (Python / ROS)"
+            - "Développement de la partie API / logique d'exécution pour un prototype robot (C++)"
+            - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
+      en:
+        - job_title: "Devops Engineer (January 2021 - February 2022)"
+          description:
+            - "Setups tests pipelines for better code quality and software stability (Gitlab CI)"
+            - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
+            - "Builds of docker images to uniformize / deploys development environments (Docker)"
+            - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core)"
+        - job_title: R&D developer (September 2019 - October 2020)
+          description:
+            - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
+            - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ..."
+            - "Development of the API / execution flow for a robot prototype (C++)"
+            - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
+  cepi_management:
+    title:
+      fr: CEPI Management / Avril 2017 - Juillet 2017
+      en: CEPI Management / April 2017 - July 2017
+    description:
+      fr:
+        - job_title: "[stage] Développeur Web"
+          description:
+            - Ajout de fonctionnalités et amélioration de l'ergonomie
+            - Correction de bugs et amélioration de la vitesse de chargement des pages
+            - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels)
+      en:
+        - job_title: "[internship] Web developer"
+          description:
+            - New functionalities and some ergonomy improvements
+            - Bug fixes and improvements of the loading page times
+            - Complete redesign of the new website (design, ergonomy, fix currents problems, ...)
+  promod:
+    title:
+      fr: Promod / Octobre 2015 - Décembre 2015
+      en: Promod / October 2015 - December 2015
+    description:
+      fr:
+        - job_title: "[stage] Technicien de maintenance en Informatique"
+          description:
+            - Maintenance des système informatique et pseudo-électronique lié à la vente en magasin.
+            - Migration du parc informatique de Windows XP à Windows 7.
+      en:
+        - job_title: "[internship] Computer maintenance technician"
+          description:
+            - Maintenance of all computers and electronics devices related to the selling in shops
+            - Migration of the whole IT infrastructure from Windows XP to Windows 7

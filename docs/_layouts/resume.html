@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+
+{% include head.html %}
+
+<body class="bg-light text-dark">
+    {% include header.html %}
+    <main class="page-content " aria-label="Content">
+        <div class="wrapper bg-light main-resume row">
+            <div class="col-sm col-sm-4 bg-dark text-light left_part_resume">
+                {% include contact.html %}
+                {% include about_me.html %}
+            </div>
+            <div  class="col-sm col-sm-8 right_part_resume">
+                {{ content }}
+                {% include work_experiences.html %}
+                {% include education.html %}
+                {% include skills.html %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

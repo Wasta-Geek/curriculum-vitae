@@ -1,0 +1,17 @@
+{%- assign language = page.lang -%}
+
+<h2>{{ site.data.work_experiences["section_title"][language] }}</h2>
+
+{%- for work_entity in site.data.work_experiences["content"] -%}
+{%- assign company_name = work_entity[0] -%}
+{%- assign company_object = work_entity[1] -%}
+<h3>{{ company_object.title[language] }}</h3>
+<dl>
+    {%- for work_subpart in company_object.description[language] -%}
+    <dt>{{ work_subpart.job_title }}</dt>
+    {%- for description_line in work_subpart.description -%}
+    <dd>{{ description_line }}</dd>
+    {%- endfor -%}
+    {%- endfor -%}
+</dl>
+{%- endfor -%}

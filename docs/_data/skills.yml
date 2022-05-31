@@ -1,0 +1,39 @@
+section_title:
+  en: Skills
+  fr: Compétences
+programming_languages_subsection:
+  en: Programming languages
+  fr: Langages de programmation
+programming_languages_list:
+  - C/C++
+  - Python
+  - Bash
+  - Javascript
+tools_subsection:
+  en: Tools
+  fr: Outils
+tools_list:
+  - Gitlab CI
+  - Docker
+  - AWS
+frameworks_subsection:
+  en: Frameworks
+  fr: Frameworks
+frameworks_list:
+  - ROS (Robot Operating System)
+  - Angular
+  - Qt (QML)
+various_subsection:
+  en: Various
+  fr: Divers
+various_list:
+  en:
+    - Linux
+    - Raspberry Pi
+    - Basics knowledges of network (IP, DHCP, DNS, subnet mask, gateway, ...)
+    - MQTT
+  fr:
+    - Linux
+    - Raspberry Pi
+    - Connaissances de bases en réseau (IP, DHCP, DNS, masque de sous réseau, passerelle, ...)
+    - MQTT
