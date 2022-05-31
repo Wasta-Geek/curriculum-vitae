@@ -7,12 +7,11 @@
       
         {% for language in site.available_languages %}
         {% if language != page.lang %}
-        <a href="{{ language | absolute_url }}">
+        <a href="{{ language | absolute_url }}" class="me-auto">
           <button class="btn bg-dark text-light border-light no-theme-switch">{{ site.baseurl }}{{ site.data.languages["label"][language] }} {{ site.data.languages["icon"][language] }}</button>
         </a>
         {% endif %}
         {% endfor %}
-        <div class="flex-fill"></div>
         <a href="{{ site.aws_s3_url }}/{{ page.lang }}.pdf" Download>
           <button class="btn bg-dark text-light border-light no-theme-switch">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
