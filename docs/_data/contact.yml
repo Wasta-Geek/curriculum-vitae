@@ -21,6 +21,9 @@ profile:
   fr: "Après une expérience professionnelle de 2 ans en tant que développeur logiciel (C++ / Python), j'ai par la suite évolué en interne vers un poste de \"Ingénieur orienté Devops\" pendant 1 an.<br>\
   A travers cette expérience j'ai pu monté en compétences sur des sujets variés tels que Docker, les Pipelines CI/CD et AWS.<br>\
   Je cherche actuellement à rejoindre une équipe dans laquelle je pourrais mettre à profit mes compétences actuelles, les améliorer et continuer à découvrir de nouveaux horizons."
+not_available_text:
+  en: "Unwilling to accept a new job"
+  fr: "Peu enclin à changer d'emploi"
 availability_text:
   en: "Availability"
   fr: "Disponibilité"
@@ -31,5 +34,5 @@ desired_job_text:
   en: "Desired job"
   fr: "Emploi souhaité"
 desired_job:
-  en: "Devops area related job"
-  fr: "Emploi en lien avec le domaine Devops"
+  en: "Devops culture"
+  fr: "En lien avec la culture Devops"

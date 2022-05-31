@@ -27,6 +27,12 @@
                 <div><b>{{ site.data.contact["desired_job_text"][language] }} : </b>{{ site.data.contact["desired_job"][language] }}</div>
             </div>
         </div>
+    {%- else -%}
+        <div class="mb-3 card bg-secondary text-light">
+            <div class="card-body">
+                <div><b>{{ site.data.contact["availability_text"][language] }} : </b>{{ site.data.contact["not_available_text"][language] }}</div>
+            </div>
+        </div>
     {%- endif -%}
     <img class="rounded-circle portrait-img col-9 mb-3 mx-auto" src="{{ "/assets/images/portrait.jpg" | absolute_url }}">
     <p class="" style="text-align: center;">{{ site.data.contact["profile"][language] }}</p>
