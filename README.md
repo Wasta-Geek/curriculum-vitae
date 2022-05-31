@@ -12,7 +12,7 @@ This curriculum uses the following frameworks/tools:
   - [Github pages](https://pages.github.com/): manages the upload/hosting of the static website
   - [Bootstrap](https://getbootstrap.com/): CSS framework
   - HTML / CSS / JS
-  - Docker: used to test locally the website; converts the static website into pdf files (custom image) and upload pdf files to AWS s3 bucket
+  - [Docker](https://www.docker.com/https://www.docker.com/): used to test locally the website; converts the static website into pdf files (custom image) and upload pdf files to AWS s3 bucket
 
 ## Github Action
 
