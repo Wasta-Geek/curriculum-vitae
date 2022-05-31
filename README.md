@@ -1,5 +1,5 @@
 # curriculum-vitae
-Online curriculum vitae - Corentin Ducatez
+[Online curriculum vitae](https://wasta-geek.github.io/curriculum-vitae) - Corentin Ducatez
 
 This curriculum is currently available in the following languages:
   - French
