@@ -200,6 +200,21 @@ a
     padding-right: 10px;
 }
 
+.language_button
+{
+    background-position-x: 90%;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    padding-right: 60%;
+}
+
+.flag_img_icon
+{
+    width: 15px;
+    height: auto;
+}
+
 #lightSwitch {
     cursor: pointer;
 }

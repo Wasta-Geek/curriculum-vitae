@@ -24,7 +24,7 @@ languages_list:
     skill:
       en: Professional
       fr: Courant
-    icon: 🇬🇧
+    icon: gb.svg
   fr:
     name:
       en: French
@@ -32,4 +32,4 @@ languages_list:
     skill:
       en: Native language
       fr: Langue maternelle
-    icon: 🇫🇷
+    icon: fr.svg

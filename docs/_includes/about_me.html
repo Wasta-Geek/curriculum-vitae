@@ -9,8 +9,9 @@
                 <h3 class="text-center">{{ site.data.about_me["languages_subsection"][language] }}</h3>
                 <ul>
                     {%- for language_object in site.data.about_me["languages_list"] -%}
-                    <li>{{ language_object[1]["icon"] }} {{ language_object[1]["name"][language] }}: {{
-                        language_object[1]["skill"][language] }}</li>
+                    <li> <img class="flag_img_icon" src="{{ "" | absolute_url }}assets/svg/{{ language_object[1]['icon'] }}">
+                        {{ language_object[1]["name"][language] }}
+                        : {{ language_object[1]["skill"][language] }}</li>
                     {%- endfor -%}
                 </ul>
             </div>

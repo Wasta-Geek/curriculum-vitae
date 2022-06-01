@@ -48,8 +48,8 @@ content:
         - job_title: "[internship] Web developer"
           description:
             - New functionalities and some ergonomy improvements
-            - Bug fixes and improvements of the loading page times
-            - Complete redesign of the new website (design, ergonomy, fix currents problems, ...)
+            - Bug fixes and pages loading time improvement
+            - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
   promod:
     title:
       fr: Promod / Octobre 2015 - Décembre 2015
@@ -58,10 +58,10 @@ content:
       fr:
         - job_title: "[stage] Technicien de maintenance en Informatique"
           description:
-            - Maintenance des système informatique et pseudo-électronique lié à la vente en magasin.
+            - Maintenance des systèmes informatiques et pseudo-électronique liés à la vente en magasin.
             - Migration du parc informatique de Windows XP à Windows 7.
       en:
         - job_title: "[internship] Computer maintenance technician"
           description:
-            - Maintenance of all computers and electronics devices related to the selling in shops
+            - Maintenance of all computers and electronics devices related to in-store sales
             - Migration of the whole IT infrastructure from Windows XP to Windows 7
