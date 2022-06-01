@@ -8,7 +8,9 @@
         {% for language in site.available_languages %}
         {% if language != page.lang %}
         <a href="{{ language | absolute_url }}" class="me-auto">
-          <button class="btn bg-dark text-light border-light no-theme-switch">{{ site.baseurl }}{{ site.data.languages["label"][language] }} {{ site.data.languages["icon"][language] }}</button>
+          <button class="btn bg-dark text-light border-light no-theme-switch language_button" style="background-image: url({{ "" | absolute_url }}assets/svg/{{ site.data.languages["icon"][language] }})">
+            {{ site.baseurl }}{{ site.data.languages["label"][language] }}
+          </button>
         </a>
         {% endif %}
         {% endfor %}
