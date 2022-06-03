@@ -28,7 +28,7 @@ jobs:
                 AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
               }
 
-            bucket_name = \"${bucket_name////-}" > terraform/tmp_variables.tfvars
+            bucket_name = \"${bucket_name////-}\"" > terraform/tmp_variables.tfvars
         - name: Terraform plan
           run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
           id: terraform_plan
