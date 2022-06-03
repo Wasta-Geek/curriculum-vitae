@@ -23,7 +23,8 @@ jobs:
             # Redirect stderr to stdout and redirects it to a file
             terraform -chdir="terraform" plan -input=false > output.txt 2>&1
             error_status=$?
-            echo "::set-output name=plan_log::`cat output.txt`"
+            cat output.txt
+            echo "::set-output name=plan_log::$(cat output.txt)"
             # Exit with the command status code
             exit $error_status
           id: terraform_plan
