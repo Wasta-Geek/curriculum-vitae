@@ -23,12 +23,16 @@ jobs:
         - name: Prepare tfvars file with needed variables
           run: |
             bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
+            echo '::set-output name=bucket_name::$bucket_name'
             echo "aws_credential = {
                 AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
                 AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
               }
 
             bucket_name = \"${bucket_name////-}\"" > terraform/tmp_variables.tfvars
+          id: tfvars_file
+        - name: Try to import bucket if it does already exists (to prevent error)
+          run: terraform import aws_s3_bucket.main_bucket ${{ steps.tfvars_file.outputs.bucket_name }} || true
         - name: Terraform plan
           run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
           id: terraform_plan
