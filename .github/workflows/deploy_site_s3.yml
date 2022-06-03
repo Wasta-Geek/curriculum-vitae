@@ -19,7 +19,14 @@ jobs:
           run: terraform -chdir="terraform" validate -no-color
           id: terraform_validate
         - name: Terraform plan
-          run: terraform -chdir="terraform" plan -no-color -input=false
+          run: |
+          echo "aws_credential = {
+                  AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
+                  AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
+                }
+
+                bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
+          terraform -chdir="terraform" plan -no-color -input=false -var ''
           id: terraform_plan
           continue-on-error: true
         - name: Update Pull Request
@@ -41,6 +48,8 @@ jobs:
               \`\`\`
 
               </details>
+
+              Bucket is available at url: `terraform -chdir="terraform" output -no-color website_endpoint`
 
               *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
 
