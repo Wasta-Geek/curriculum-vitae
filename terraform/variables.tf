@@ -7,5 +7,5 @@ variable "aws_credential" {
 }
 
 variable "bucket_name" {
-    type = string
+  type = string
 }

@@ -15,24 +15,24 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "main_bucket" {
-  bucket = var.bucket_name
+  bucket        = var.bucket_name
   force_destroy = true
 }
 
 resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.main_bucket.bucket
-  acl = "public-read"
+  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
   bucket = aws_s3_bucket.main_bucket.bucket
 
   index_document {
-      suffix = "index.html"
+    suffix = "index.html"
   }
 
   error_document {
-      key = "404.html"
+    key = "404.html"
   }
 }
 
@@ -60,18 +60,18 @@ resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
 
 ## Lookup into the folder and retrieve a map containing each path/MIME/hash/...
 module "website_files" {
-  source = "hashicorp/dir/template"
+  source   = "hashicorp/dir/template"
   base_dir = "../docs/_site"
 }
 
 resource "aws_s3_object" "website_object" {
   bucket = aws_s3_bucket.main_bucket.bucket
 
-  for_each = module.website_files.files
-  key    = each.key
-  source = each.value.source_path
+  for_each     = module.website_files.files
+  key          = each.key
+  source       = each.value.source_path
   content_type = each.value.content_type
-  etag = each.value.digests.md5
-  
+  etag         = each.value.digests.md5
+
   acl = "public-read"
 }
