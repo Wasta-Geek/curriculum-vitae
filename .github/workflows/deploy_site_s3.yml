@@ -19,13 +19,19 @@ jobs:
           run: terraform -chdir="terraform" validate
           id: terraform_validate
         - name: Terraform plan
-          run: terraform -chdir="terraform" plan -input=false
+          run: |
+            # Redirect stderr to stdout and redirects it to a file
+            terraform -chdir="terraform" plan -input=false > output.txt 2>&1
+            error_status=$?
+            echo "::set-output name=plan_log::`cat output.txt`"
+            # Exit with the command status code
+            exit $error_status
           id: terraform_plan
           continue-on-error: true
         - name: Update Pull Request
           uses: actions/github-script@v6
           env:
-            PLAN: "terraform\n${{ steps.terraform_plan.outputs.* }}"
+            PLAN: "terraform\n${{ steps.terraform_plan.outputs.plan_log }}"
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
