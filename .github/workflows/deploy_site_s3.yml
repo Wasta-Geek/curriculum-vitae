@@ -20,13 +20,13 @@ jobs:
           id: terraform_validate
         - name: Terraform plan
           run: |
-          echo "aws_credential = {
-                  AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
-                  AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
-                }
+            echo "aws_credential = {
+                    AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
+                    AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
+                  }
 
-                bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
-          terraform -chdir="terraform" plan -no-color -input=false -var ''
+                  bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
+            terraform -chdir="terraform" plan -no-color -input=false -var ''
           id: terraform_plan
           continue-on-error: true
         - name: Update Pull Request
