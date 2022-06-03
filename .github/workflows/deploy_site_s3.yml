@@ -19,19 +19,13 @@ jobs:
           run: terraform -chdir="terraform" validate
           id: terraform_validate
         - name: Terraform plan
-          run: |
-            terraform_output=$(terraform -chdir="terraform" plan -input=false 2>&1)
-            error_status=$?
-            echo $terraform_output
-            echo "TEST TEST ALLO"
-            echo "::set-output name=plan_log::$terraform_output"
-            exit $error_status
+          run: terraform -chdir="terraform" plan -input=false
           id: terraform_plan
           continue-on-error: true
         - name: Update Pull Request
           uses: actions/github-script@v6
           env:
-            PLAN: "terraform\n${{ steps.terraform_plan.outputs.plan_log }}"
+            PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}\n${{ steps.terraform_plan.outputs.stderr }}"
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
