@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform destroy
-        run: terraform -chdir=".terraform" destroy
+        run: terraform -chdir="terraform" destroy
