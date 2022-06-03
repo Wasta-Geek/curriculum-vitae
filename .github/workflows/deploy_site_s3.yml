@@ -11,10 +11,13 @@ jobs:
         - uses: hashicorp/setup-terraform@v2
         - name: Verify terraform files format
           run: terraform -chdir="terraform" fmt
+          id: terraform_fmt
         - name: Init terraform
           run: terraform -chdir="terraform" init
+          id: terraform_init
         - name: Check if terraform files are valids
           run: terraform -chdir="terraform" validate
+          id: terraform_validate
         - name: Terraform plan
           run: terraform -chdir="terraform" plan -input=false
           id: terraform_plan
@@ -22,14 +25,14 @@ jobs:
         - name: Update Pull Request
           uses: actions/github-script@v6
           env:
-            PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}"
+            PLAN: "terraform\n${{ steps.terraform_plan.outputs.* }}"
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
-              const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-              #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-              #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-              #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+              const output = `#### Terraform Format and Style 🖌\`${{ steps.terraform_fmt.outcome }}\`
+              #### Terraform Initialization ⚙️\`${{ steps.terraform_init.outcome }}\`
+              #### Terraform Plan 📖\`${{ steps.terraform_plan.outcome }}\`
+              #### Terraform Validation 🤖\`${{ steps.terraform_validate.outcome }}\`
 
               <details><summary>Show Plan</summary>
 
