@@ -20,12 +20,10 @@ jobs:
           id: terraform_validate
         - name: Terraform plan
           run: |
-            # Redirect stderr to stdout and redirects it to a file
             terraform -chdir="terraform" plan -input=false > output.txt 2>&1
             error_status=$?
             cat output.txt
             echo "::set-output name=plan_log::$(cat output.txt)"
-            # Exit with the command status code
             exit $error_status
           id: terraform_plan
           continue-on-error: true
