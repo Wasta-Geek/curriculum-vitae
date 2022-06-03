@@ -52,7 +52,7 @@ jobs:
 
               </details>
 
-              Bucket is available at url: `terraform -chdir="terraform" output -no-color website_endpoint`
+              Bucket is available at url: \`terraform -chdir="terraform" output -no-color website_endpoint\`
 
               *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
 
