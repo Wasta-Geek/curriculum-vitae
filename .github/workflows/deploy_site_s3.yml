@@ -32,7 +32,7 @@ jobs:
             bucket_name = \"${bucket_name////-}\"" > terraform/tmp_variables.tfvars
           id: tfvars_file
         - name: Try to import bucket if it does already exists (to prevent error)
-          run: terraform -chdir="terraform" import aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
+          run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}"  || true
         - name: Terraform plan
           run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
           id: terraform_plan
