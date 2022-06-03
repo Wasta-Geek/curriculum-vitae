@@ -1,0 +1,11 @@
+name: Clean deployed s3 site after PR closed
+on:
+  pull_request:
+    types: [closed]
+  workflow_call:
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Terraform destroy
+        run: terraform -chdir=".terraform" destroy

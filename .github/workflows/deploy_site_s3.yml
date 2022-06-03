@@ -1,0 +1,55 @@
+name: Deploy site to s3 for each PR
+on:
+  pull_request:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout files
+          uses: actions/checkout@v3
+        - uses: hashicorp/setup-terraform@v2
+        - name: Verify terraform files format
+          run: terraform -chdir=".terraform" fmt
+        - name: Init terraform
+          run: terraform -chdir=".terraform" init
+        - name: Check if terraform files are valids
+          run: terraform -chdir=".terraform" validate
+        - name: Terraform plan
+          run: terraform -chdir=".terraform" plan -input=false
+          id: terraform_plan
+          continue-on-error: true
+        - name: Update Pull Request
+          uses: actions/github-script@6
+          env:
+            PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}"
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            script: |
+              const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+              #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+              #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+              #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+
+              <details><summary>Show Plan</summary>
+
+              \`\`\`\n
+              ${process.env.PLAN}
+              \`\`\`
+
+              </details>
+
+              *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: output
+              })
+        # This step highlights whenever a plan fails because the "Terraform Plan" step continues on error.
+        - name: Terraform Plan Status
+          if: steps.terraform_plan.outcome == 'failure'
+          run: exit 1
+        - name: Terraform Apply
+          run: terraform -chdir=".terraform" apply -auto-approve -input=false
