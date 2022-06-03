@@ -26,7 +26,7 @@ jobs:
                   }
 
                   bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
-            terraform -chdir="terraform" plan -no-color -input=false -var ''
+            terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
           id: terraform_plan
           continue-on-error: true
         - name: Update Pull Request
