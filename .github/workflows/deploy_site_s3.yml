@@ -3,7 +3,7 @@ on:
   pull_request:
 
 jobs:
-  terraform_checks:
+  terraform:
     runs-on: ubuntu-latest
     ## We considers we're in staging environment
     environment: staging
@@ -75,6 +75,7 @@ jobs:
           echo -e "\naws_s3_url: https://$website_endpoint
           url: https://$website_endpoint
           domain: https://$website_endpoint" >> docs/_config.yml
+          cat docs/_config.yml
       - name: Jekyll build
         uses: actions/jekyll-build-pages@v1
         with:
@@ -82,7 +83,7 @@ jobs:
           destination: ./_site
           verbose: true
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Archive PDf folder files
+      - name: Archive Website
         uses: actions/upload-artifact@v3
         with:
           name: Resume website
