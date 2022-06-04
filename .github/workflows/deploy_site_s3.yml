@@ -3,7 +3,7 @@ on:
   pull_request:
 
 jobs:
-  terraform:
+  terraform_checks:
     runs-on: ubuntu-latest
     ## We considers we're in staging environment
     environment: staging
@@ -33,31 +33,7 @@ jobs:
         id: tfvars_file
       - name: Try to import bucket if it does already exists (to prevent error)
         run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
-      
-      - name: Set variable in config
-        run: |
-          website_endpoint=$(terraform -chdir="terraform" output -raw website_endpoint)
-          echo -e "\naws_s3_url: https://$website_endpoint
-          url: https://$website_endpoint
-          domain: https://$website_endpoint" >> docs/_config.yml
-          
-      - name: 💎 setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6 # can change this to 2.7 or whatever version you prefer
-      - name: 🔨 install dependencies & build site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: false
-          jekyll_src: docs
-          gem_src: docs
-      - name: Archive PDf folder files
-        uses: actions/upload-artifact@v3
-        with:
-          name: Resume website
-          path: _site/**
-      
-      - name: Terraform plan
+        - name: Terraform plan
         run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
         id: terraform_plan
         continue-on-error: true
@@ -93,5 +69,45 @@ jobs:
       - name: Terraform Plan Status
         if: steps.terraform_plan.outcome == 'failure'
         run: exit 1
+      - name: Set website endpoint in env
+        run:  echo ::set-env name=WEBSITE_DOMAIN::$(terraform -chdir="terraform" output -raw website_endpoint)
+    outputs:
+      website_domain: ${{ env.WEBSITE_DOMAIN }}
+  
+  jekyll_build:
+    needs:
+      - terraform_checks
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v3
+      - name: Set variable in config
+        run: |
+          echo -e "\naws_s3_url: https://$website_endpoint
+          url: https://$website_endpoint
+          domain: https://$website_endpoint" >> docs/_config.yml
+          
+      - name: Bundle install
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site
+          verbose: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive PDf folder files
+        uses: actions/upload-artifact@v3
+        with:
+          name: Resume website
+          path: _site/**
+
+  terraform_deploy:
+    needs:
+      - jekyll_build
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v3
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: _site
       - name: Terraform Apply
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
