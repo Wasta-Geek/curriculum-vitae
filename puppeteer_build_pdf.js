@@ -9,14 +9,25 @@ const puppeteer = require('puppeteer');
   }
   else
   {
-    console.log("No language provided, language set to 'en' by default")
+    console.log(`No language provided, language set to '${language}' by default`)
+  }
+
+  var url = "https://wasta-geek.github.io/curriculum-vitae/"
+  var arg_url = process.argv.find( element => element.startsWith("url=") ) 
+  if (arg_language)
+  {
+    url = arg_url.replace("url=", "")
+  }
+  else
+  {
+    console.log(`No url provided, url set to '${url}' by default`)
   }
 
   const pdf_path = `/home/${ language }.pdf`
   const browser = await puppeteer.launch({
     headless: true,
     args:['--no-sandbox'] });
-  const url = "https://wasta-geek.github.io/curriculum-vitae/"
+  
   const page = await browser.newPage();
   await page.goto(`${ url }/${ language}`, { waitUntil: 'networkidle0' }).catch(async function (error) {
     console.log(error)

@@ -1,12 +1,37 @@
 name: Deploy site to s3 for each PR
 on:
+  push:
+    branches:
+      - master
+      - develop
+    paths:
+      - 'terraform/**'
+      - 'docs/**'
   pull_request:
 
+env:
+  BASE_NAME_BUCKET: corentin-ducatez-resume-bucket
+
 jobs:
-  terraform:
+  set_environment_name:
     runs-on: ubuntu-latest
-    ## We considers we're in staging environment
-    environment: staging
+    steps:
+      - name: Some check on branch
+        id: branch_check
+        run: |
+          echo "Running on branch ${{ github.ref }}"
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            echo "::set-output name=env_name::Production"
+          else
+            echo "::set-output name=env_name::Staging"
+          fi
+    outputs:
+      environment_name: ${{ steps.branch_check.outputs.env_name }}
+  terraform_check_and_deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - set_environment_name
+    environment: ${{ needs.set_environment_name.outputs.environment_name }}
     steps:
       - uses: hashicorp/setup-terraform@v2
       - name: Checkout files
@@ -22,7 +47,7 @@ jobs:
         id: terraform_validate
       - name: Prepare tfvars file with needed variables
         run: |
-          raw_bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
+          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.ref_name }}"
           echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
@@ -39,6 +64,7 @@ jobs:
         continue-on-error: true
       - name: Update Pull Request
         uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}\n${{ steps.terraform_plan.outputs.stderr }}"
         with:
@@ -78,6 +104,8 @@ jobs:
           echo -e "\naws_s3_url: http://$website_endpoint
           url: http://$website_endpoint
           domain: http://$website_endpoint" >> docs/_config.yml
+          echo "::set-output name=website_endpoint::http://$website_endpoint"
+        id: set_website_endpoint
       - name: Jekyll build
         uses: actions/jekyll-build-pages@v1
         with:
@@ -92,3 +120,10 @@ jobs:
           path: docs/_site/**
       - name: Terraform Apply (deploy website)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
+  call-build-pdf-workflow:
+    needs: terraform_check_and_deploy
+    # Call build pdf workflow
+    uses: "./.github/workflows/build_pdf.yml"
+    with:
+    AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.steps.tfvars_file.outputs.bucket_name }}
+    URL: ${{ needs.terraform_check_and_deploy.steps.set_website_endpoint.outputs.website_endpoint }}
