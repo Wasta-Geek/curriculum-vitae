@@ -120,10 +120,10 @@ jobs:
           path: docs/_site/**
       - name: Terraform Apply (deploy website)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
-  call-build-pdf-workflow:
+  call-build-pdf-send-s3-workflow:
     needs: terraform_check_and_deploy
     # Call build pdf workflow
-    uses: "./.github/workflows/build_pdf.yml"
+    uses: "./.github/workflows/build_pdf_send_s3.yml"
     with:
     AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.steps.tfvars_file.outputs.bucket_name }}
     URL: ${{ needs.terraform_check_and_deploy.steps.set_website_endpoint.outputs.website_endpoint }}
