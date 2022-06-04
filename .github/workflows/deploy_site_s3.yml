@@ -3,25 +3,6 @@ on:
   pull_request:
 
 jobs:
-  jekyll_build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout files
-        uses: actions/checkout@v3
-      - name: Set variable in config
-        run: |
-          echo "aws_s3_url: https://corentin-ducatez-resume-bucket-production.s3.eu-west-3.amazonaws.com" >> docs/_config.yml
-          echo "url: https://wasta-geek.github.io/curriculum-vitae"
-
-        # Standard usage
-      - uses:  helaili/jekyll-action@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Archive PDf folder files
-        uses: actions/upload-artifact@v3
-        with:
-          name: Resume website
-          path: _site/**
   terraform:
     runs-on: ubuntu-latest
     ## We considers we're in staging environment
