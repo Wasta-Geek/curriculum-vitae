@@ -13,14 +13,19 @@ jobs:
         uses: actions/checkout@v3
       - name: Prepare tfvars file with needed variables
         run: |
+          raw_bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
+          echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
               AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
             }
 
-            bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
+          bucket_name = \"${raw_bucket_name////-}\"" > terraform/tmp_variables.tfvars
+        id: tfvars_file
       - name: Init terraform
         run: terraform -chdir="terraform" init
         id: terraform_init
+      - name: Try to import bucket if it does already exists (to prevent error)
+        run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
       - name: Terraform destroy
         run: terraform -chdir="terraform" destroy -auto-approve -var-file "tmp_variables.tfvars"
