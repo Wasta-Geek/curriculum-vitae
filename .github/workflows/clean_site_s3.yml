@@ -23,4 +23,4 @@ jobs:
         run: terraform -chdir="terraform" init
         id: terraform_init
       - name: Terraform destroy
-        run: terraform -chdir="terraform" destroy
+        run: terraform -chdir="terraform" destroy -auto-approve -var-file "tmp_variables.tfvars"
