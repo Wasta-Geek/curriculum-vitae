@@ -73,7 +73,8 @@ jobs:
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
       - name: Set variable in config
         run: |
-          website_endpoint=$(terraform -chdir="terraform" output -raw website_endpoint)
+          website_endpoint=`terraform -chdir="terraform" output -raw website_endpoint)`
+          echo "THIS IS :$website_endpoint:"
           echo -e "\naws_s3_url: https://$website_endpoint
           url: https://$website_endpoint
           domain: https://$website_endpoint" >> docs/_config.yml
