@@ -69,24 +69,13 @@ jobs:
       - name: Terraform Plan Status
         if: steps.terraform_plan.outcome == 'failure'
         run: exit 1
-      - name: Set website endpoint in env
-        run:  echo ::set-env name=WEBSITE_DOMAIN::$(terraform -chdir="terraform" output -raw website_endpoint)
-    outputs:
-      website_domain: ${{ env.WEBSITE_DOMAIN }}
-  
-  jekyll_build:
-    needs:
-      - terraform_checks
-    steps:
-      - name: Checkout files
-        uses: actions/checkout@v3
       - name: Set variable in config
         run: |
+          website_endpoint=$(terraform -chdir="terraform" output -raw website_endpoint)
           echo -e "\naws_s3_url: https://$website_endpoint
           url: https://$website_endpoint
           domain: https://$website_endpoint" >> docs/_config.yml
-          
-      - name: Bundle install
+      - name: Jekyll build
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs
@@ -98,16 +87,5 @@ jobs:
         with:
           name: Resume website
           path: _site/**
-
-  terraform_deploy:
-    needs:
-      - jekyll_build
-    steps:
-      - name: Checkout files
-        uses: actions/checkout@v3
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: _site
       - name: Terraform Apply
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
