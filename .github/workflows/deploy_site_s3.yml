@@ -74,12 +74,10 @@ jobs:
       - name: Set variable in config
         run: |
           website_endpoint=`terraform-bin -chdir="terraform" output -raw website_endpoint`
-          echo $?
-          echo "THIS IS :$website_endpoint:"
-          echo -e "\naws_s3_url: https://$website_endpoint
-          url: https://$website_endpoint
-          domain: https://$website_endpoint" >> docs/_config.yml
-          cat docs/_config.yml
+          ## MUST keep url in 'http' format (not https)
+          echo -e "\naws_s3_url: http://$website_endpoint
+          url: http://$website_endpoint
+          domain: http://$website_endpoint" >> docs/_config.yml
       - name: Jekyll build
         uses: actions/jekyll-build-pages@v1
         with:
