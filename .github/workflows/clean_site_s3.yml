@@ -19,5 +19,8 @@ jobs:
             }
 
             bucket_name = \"corentin-ducatez-${{ github.ref_name }}-bucket\"" > terraform/tmp_variables.tfvars
+      - name: Init terraform
+        run: terraform -chdir="terraform" init
+        id: terraform_init
       - name: Terraform destroy
         run: terraform -chdir="terraform" destroy
