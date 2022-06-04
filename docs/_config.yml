@@ -27,6 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wasta-geek.github.io/curriculum-vitae" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  wasta-geek
 
+# Will get override by github action
 aws_s3_url: https://corentin-ducatez-resume-bucket-production.s3.eu-west-3.amazonaws.com
 
 seek_a_job: true
