@@ -16,7 +16,7 @@ env:
   SCRIPT_PATH: /home/puppeteer_build_pdf.js
   URL_DEBUG: ${{ inputs.URL }}
   ENV_DEBUG: ${{ inputs.ENVIRONMENT_NAME }}
-
+  AWS_S3_BUCKET_NAME_DEBUG: ${{ inputs.AWS_S3_BUCKET }}
 jobs:
   build_pdf_files:
     runs-on: ubuntu-latest
