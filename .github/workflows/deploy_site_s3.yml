@@ -125,5 +125,5 @@ jobs:
     # Call build pdf workflow
     uses: "./.github/workflows/build_pdf_send_s3.yml"
     with:
-    AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.steps.tfvars_file.outputs.bucket_name }}
-    URL: ${{ needs.terraform_check_and_deploy.steps.set_website_endpoint.outputs.website_endpoint }}
+      AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.steps.tfvars_file.outputs.bucket_name }}
+      URL: ${{ needs.terraform_check_and_deploy.steps.set_website_endpoint.outputs.website_endpoint }}
