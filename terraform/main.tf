@@ -36,6 +36,13 @@ resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
   }
 }
 
+resource "aws_s3_bucket_versioning" "versioning_enabled" {
+  bucket = aws_s3_bucket.main_bucket.bucket
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 ## Lookup into the folder and retrieve a map containing each path/MIME/hash/...
 module "website_files" {
   source   = "hashicorp/dir/template"
