@@ -68,6 +68,8 @@ jobs:
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
+          jekyll_src: docs
+          gem_src: docs
       - name: Archive PDf folder files
         uses: actions/upload-artifact@v3
         with:
