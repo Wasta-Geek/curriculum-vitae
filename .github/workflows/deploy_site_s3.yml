@@ -84,13 +84,13 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs
-          destination: ./_site
+          destination: ./docs/_site
           verbose: true
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Website
         uses: actions/upload-artifact@v3
         with:
           name: Resume website
-          path: _site/**
+          path: docs/_site/**
       - name: Terraform Apply (deploy website)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
