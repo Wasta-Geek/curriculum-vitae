@@ -36,28 +36,6 @@ resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
   }
 }
 
-# resource "aws_s3_bucket_policy" "policy_allow_public_access" {
-#   bucket = aws_s3_bucket.main_bucket.bucket
-#   policy = data.aws_iam_policy_document.policy_allow_public_access.json
-# }
-
-# data "aws_iam_policy_document" "policy_allow_public_access" {
-#   statement {
-#     principals {
-#       type        = "*"
-#       identifiers = ["*"]
-#     }
-
-#     actions = [
-#       "s3:GetObject",
-#     ]
-
-#     resources = [
-#       "${aws_s3_bucket.main_bucket.arn}/*",
-#     ]
-#   }
-# }
-
 ## Lookup into the folder and retrieve a map containing each path/MIME/hash/...
 module "website_files" {
   source   = "hashicorp/dir/template"
