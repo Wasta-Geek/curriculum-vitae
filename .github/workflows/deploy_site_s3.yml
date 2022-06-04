@@ -121,6 +121,9 @@ jobs:
           path: docs/_site/**
       - name: Terraform Apply (deploy website)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
+    outputs:
+      website_endpoint: ${{ steps.set_website_endpoint.outputs.website_endpoint }}
+      bucket_name: ${{ steps.tfvars_file.outputs.bucket_name }}
   call-build-pdf-send-s3-workflow:
     needs: 
       - set_environment_name
@@ -128,6 +131,6 @@ jobs:
     # Call build pdf workflow
     uses: "./.github/workflows/build_pdf_send_s3.yml"
     with:
-      AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.steps.tfvars_file.outputs.bucket_name }}
-      URL: ${{ needs.terraform_check_and_deploy.steps.set_website_endpoint.outputs.website_endpoint }}
+      AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.outputs.bucket_name }}
+      URL: ${{ needs.terraform_check_and_deploy.outputs.website_endpoint }}
       ENVIRONMENT_NAME: ${{ needs.set_environment_name.outputs.environment_name }}
