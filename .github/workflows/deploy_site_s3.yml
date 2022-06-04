@@ -3,71 +3,108 @@ on:
   pull_request:
 
 jobs:
+  jekyll_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v3
+      - name: Set variable in config
+        run: |
+          echo "aws_s3_url: https://corentin-ducatez-resume-bucket-production.s3.eu-west-3.amazonaws.com" >> docs/_config.yml
+          echo "url: https://wasta-geek.github.io/curriculum-vitae"
+
+        # Standard usage
+      - uses:  helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive PDf folder files
+        uses: actions/upload-artifact@v3
+        with:
+          name: Resume website
+          path: _site/**
   terraform:
     runs-on: ubuntu-latest
     ## We considers we're in staging environment
     environment: staging
     steps:
-        - name: Checkout files
-          uses: actions/checkout@v3
-        - uses: hashicorp/setup-terraform@v2
-        - name: Verify terraform files format
-          run: terraform -chdir="terraform" fmt -check
-          id: terraform_fmt
-        - name: Init terraform
-          run: terraform -chdir="terraform" init
-          id: terraform_init
-        - name: Check if terraform files are valids
-          run: terraform -chdir="terraform" validate -no-color
-          id: terraform_validate
-        - name: Prepare tfvars file with needed variables
-          run: |
-            raw_bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
-            echo "::set-output name=bucket_name::${raw_bucket_name////-}"
-            echo "aws_credential = {
-                AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
-                AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
-              }
+      - uses: hashicorp/setup-terraform@v2
+      - name: Checkout files
+        uses: actions/checkout@v3
+      - name: Verify terraform files format
+        run: terraform -chdir="terraform" fmt -check
+        id: terraform_fmt
+      - name: Init terraform
+        run: terraform -chdir="terraform" init
+        id: terraform_init
+      - name: Check if terraform files are valids
+        run: terraform -chdir="terraform" validate -no-color
+        id: terraform_validate
+      - name: Prepare tfvars file with needed variables
+        run: |
+          raw_bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
+          echo "::set-output name=bucket_name::${raw_bucket_name////-}"
+          echo "aws_credential = {
+              AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
+              AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
+            }
 
-            bucket_name = \"${raw_bucket_name////-}\"" > terraform/tmp_variables.tfvars
-          id: tfvars_file
-        - name: Try to import bucket if it does already exists (to prevent error)
-          run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
-        - name: Terraform plan
-          run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
-          id: terraform_plan
-          continue-on-error: true
-        - name: Update Pull Request
-          uses: actions/github-script@v6
-          env:
-            PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}\n${{ steps.terraform_plan.outputs.stderr }}"
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            script: |
-              const output = `#### Terraform Format and Style 🖌\`${{ steps.terraform_fmt.outcome }}\`
-              #### Terraform Initialization ⚙️\`${{ steps.terraform_init.outcome }}\`
-              #### Terraform Plan 📖\`${{ steps.terraform_plan.outcome }}\`
-              #### Terraform Validation 🤖\`${{ steps.terraform_validate.outcome }}\`
+          bucket_name = \"${raw_bucket_name////-}\"" > terraform/tmp_variables.tfvars
+        id: tfvars_file
+      - name: Try to import bucket if it does already exists (to prevent error)
+        run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
+      
+      - name: Set variable in config
+        run: |
+          website_endpoint=`terraform -chdir="terraform" -var-file "tmp_variables.tfvars" output website_endpoint`
+          echo "aws_s3_url: https://$website_endpoint\n
+          url: https://$website_endpoint\n
+          domain: https://$website_endpoint\n" >> docs/_config.yml
+          cat docs/_config.yml
+      - name: 🔨 install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
+      - name: Archive PDf folder files
+        uses: actions/upload-artifact@v3
+        with:
+          name: Resume website
+          path: _site/**
+      
+      - name: Terraform plan
+        run: terraform -chdir="terraform" plan -no-color -input=false -var-file "tmp_variables.tfvars"
+        id: terraform_plan
+        continue-on-error: true
+      - name: Update Pull Request
+        uses: actions/github-script@v6
+        env:
+          PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}\n${{ steps.terraform_plan.outputs.stderr }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.terraform_fmt.outcome }}\`
+            #### Terraform Initialization ⚙️\`${{ steps.terraform_init.outcome }}\`
+            #### Terraform Plan 📖\`${{ steps.terraform_plan.outcome }}\`
+            #### Terraform Validation 🤖\`${{ steps.terraform_validate.outcome }}\`
 
-              <details><summary>Show Plan</summary>
+            <details><summary>Show Plan</summary>
 
-              \`\`\`\n
-              ${process.env.PLAN}
-              \`\`\`
+            \`\`\`\n
+            ${process.env.PLAN}
+            \`\`\`
 
-              </details>
+            </details>
 
-              *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
 
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: output
-              })
-        # This step highlights whenever a plan fails because the "Terraform Plan" step continues on error.
-        - name: Terraform Plan Status
-          if: steps.terraform_plan.outcome == 'failure'
-          run: exit 1
-        - name: Terraform Apply
-          run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+      # This step highlights whenever a plan fails because the "Terraform Plan" step continues on error.
+      - name: Terraform Plan Status
+        if: steps.terraform_plan.outcome == 'failure'
+        run: exit 1
+      - name: Terraform Apply
+        run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
