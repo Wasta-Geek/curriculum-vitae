@@ -55,7 +55,10 @@ jobs:
       
       - name: Set variable in config
         run: |
-          website_endpoint=`terraform -chdir="terraform" -var-file "tmp_variables.tfvars" output -raw website_endpoint`
+          website_endpoint=$(terraform -chdir="terraform" -var-file "tmp_variables.tfvars" output -raw website_endpoint)
+          echo -e "\naws_s3_url: https://$website_endpoint
+          url: https://$website_endpoint
+          domain: https://$website_endpoint" >> docs/_config.yml
           
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
