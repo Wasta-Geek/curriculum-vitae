@@ -48,7 +48,7 @@ jobs:
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
         with:
-          enable_cache: true
+          enable_cache: false
           jekyll_src: docs
           gem_src: docs
       - name: Archive PDf folder files
