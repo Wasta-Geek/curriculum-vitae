@@ -8,6 +8,9 @@ jobs:
     environment: staging
     runs-on: ubuntu-latest
     steps:
+      - uses: hashicorp/setup-terraform@v2
+      - name: Checkout files
+        uses: actions/checkout@v3
       - name: Prepare tfvars file with needed variables
         run: |
           echo "aws_credential = {
