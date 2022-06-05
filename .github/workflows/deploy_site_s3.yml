@@ -48,7 +48,6 @@ jobs:
       - name: Prepare tfvars file with needed variables
         run: |
           raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.ref_name }}"
-          echo "::set-output name=raw_bucket_name::$raw_bucket_name"
           echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
@@ -124,7 +123,7 @@ jobs:
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
     outputs:
       website_endpoint: ${{ steps.set_website_endpoint.outputs.website_endpoint }}
-      bucket_name: ${{ steps.tfvars_file.outputs.raw_bucket_name }}
+      bucket_name: ${{ steps.tfvars_file.outputs.bucket_name }}
   call-build-pdf-send-s3-workflow:
     needs: 
       - set_environment_name
