@@ -3,6 +3,10 @@ on:
   pull_request:
     types: [closed]
   workflow_call:
+
+env:
+  BASE_NAME_BUCKET: corentin-ducatez-resume-bucket
+
 jobs:
   terraform:
     environment: staging
@@ -13,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Prepare tfvars file with needed variables
         run: |
-          raw_bucket_name="corentin-ducatez-${{ github.ref_name }}-bucket"
+          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.ref_name }}"
           echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
