@@ -48,15 +48,15 @@ jobs:
     steps:
       - name: Register with credentials
         run: |
-          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" 
-          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}"
-          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}"
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
+          aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
+          aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
           name: pdf-files
       - name: Upload FR pdf
-        run: aws s3 cp fr.pdf s3://${{ inputs.AWS_S3_BUCKET }}
+        run: aws s3 cp fr.pdf s3://${{ inputs.AWS_S3_BUCKET }} --profile ${{ inputs.ENVIRONMENT_NAME }}
       - name: Upload EN pdf
-        run: aws s3 cp en.pdf s3://${{ inputs.AWS_S3_BUCKET }}
+        run: aws s3 cp en.pdf s3://${{ inputs.AWS_S3_BUCKET }} --profile ${{ inputs.ENVIRONMENT_NAME }}
