@@ -26,7 +26,8 @@ jobs:
         run: terraform -chdir="terraform" init
         id: terraform_init
       - name: Try to import bucket if it does already exists (to prevent error)
-        run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}" || true
+        run: terraform -chdir="terraform" import -var-file "tmp_variables.tfvars" aws_s3_bucket.main_bucket "${{ steps.tfvars_file.outputs.bucket_name }}"
+        continue-on-error: true
       - name: Terraform Apply (Prevent BucketNotEmpty error at destroy)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
       - name: Terraform destroy
