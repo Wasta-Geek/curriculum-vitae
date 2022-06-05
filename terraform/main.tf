@@ -49,6 +49,28 @@ module "website_files" {
   base_dir = "../docs/_site"
 }
 
+resource "aws_s3_bucket_policy" "policy_allow_public_access" {
+  bucket = aws_s3_bucket.main_bucket.bucket
+  policy = data.aws_iam_policy_document.policy_allow_public_access.json
+}
+
+data "aws_iam_policy_document" "policy_allow_public_access" {
+  statement {
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "s3:GetObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.main_bucket.arn}/*",
+    ]
+  }
+}
+
 resource "aws_s3_object" "website_object" {
   bucket = aws_s3_bucket.main_bucket.bucket
 
