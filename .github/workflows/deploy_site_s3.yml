@@ -21,9 +21,9 @@ jobs:
         run: |
           echo "Running on branch ${{ github.ref }}"
           if [ "${{ github.ref }}" = "refs/heads/master" ]; then
-            echo "::set-output name=env_name::Production"
+            echo "::set-output name=env_name::production"
           else
-            echo "::set-output name=env_name::Staging"
+            echo "::set-output name=env_name::staging"
           fi
     outputs:
       environment_name: ${{ steps.branch_check.outputs.env_name }}
