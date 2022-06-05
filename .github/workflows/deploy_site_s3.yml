@@ -130,6 +130,7 @@ jobs:
       - terraform_check_and_deploy
     # Call build pdf workflow
     uses: "./.github/workflows/build_pdf_send_s3.yml"
+    secrets: inherit
     with:
       AWS_S3_BUCKET: ${{ needs.terraform_check_and_deploy.outputs.bucket_name }}
       URL: ${{ needs.terraform_check_and_deploy.outputs.website_endpoint }}
