@@ -101,6 +101,15 @@ jobs:
       - name: Terraform Apply (Only first time to creates bucket)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
         if: steps.terraform_import.outcome == 'failure'
+      - name: Dummy test success
+        run: echo "success"
+        if: steps.terraform_import.outcome == 'success'
+      - name: Dummy test skipped
+        run: echo "skipped"
+        if: steps.terraform_import.outcome == 'skipped'
+      - name: Dummy test conclusion failure
+        run: echo "skipped"
+        if: steps.terraform_import.conclusion == 'failure'
       - name: Terraform Apply (retrieve outputs)
         run: terraform -chdir="terraform" apply -auto-approve -input=false -var-file "tmp_variables.tfvars"
       - name: Set variable in config
