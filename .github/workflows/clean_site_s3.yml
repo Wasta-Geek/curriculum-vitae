@@ -5,6 +5,7 @@ on:
 
 env:
   BASE_NAME_BUCKET: corentin-ducatez-resume-bucket
+  PR_REF_NAME: "${{ github.event.pull_request.number }}/merge"
 
 jobs:
   terraform:
@@ -15,9 +16,8 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v3
       - name: Prepare tfvars file with needed variables
-        # Important to use github.head_ref (base branch) rather than github.ref_name (destination branch)
         run: |
-          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.head_ref }}"
+          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ env.PR_REF_NAME }}"
           echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
