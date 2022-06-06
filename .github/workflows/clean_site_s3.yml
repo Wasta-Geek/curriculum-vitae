@@ -21,13 +21,16 @@ jobs:
     environment: staging
     runs-on: ubuntu-latest
     steps:
+      - name: "Debug 1"
+        run: echo "${{ github.event.pull_request.base.ref }} // ${{ github.ref_name }} // ${{ github.head_ref }} // ${{ github.event.pull_request.head.ref }}"
       - uses: hashicorp/setup-terraform@v2
       - name: Checkout files
         uses: actions/checkout@v3
+      - name: "Debug 2"
+        run: echo "${{ github.event.pull_request.base.ref }} // ${{ github.ref_name }} // ${{ github.head_ref }} // ${{ github.event.pull_request.head.ref }}"
       - name: Prepare tfvars file with needed variables
-        # Important to use github.event.base.ref (base branch) rather than github.ref_name (destination branch)
         run: |
-          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.event.pull_request.base.ref }}"
+          raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.ref_name }}"
           echo "::set-output name=bucket_name::${raw_bucket_name////-}"
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
