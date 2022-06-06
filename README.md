@@ -13,6 +13,7 @@ This curriculum uses the following frameworks/tools:
   - [Bootstrap](https://getbootstrap.com/): CSS framework
   - HTML / CSS / JS
   - [Docker](https://www.docker.com/https://www.docker.com/): used to test locally the website; converts the static website into pdf files (custom image) and upload pdf files to AWS s3 bucket
+  - [Terraform](https://www.terraform.io/): used to manages the AWS s3 bucket infrastructure
 
 ## Infrastructure
 
