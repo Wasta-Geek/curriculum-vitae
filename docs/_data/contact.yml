@@ -15,10 +15,10 @@ email_text:
   fr: "e-mail"
 email: "corentin_ducatez@hotmail.fr"
 profile:
-  en: "After 2 years spent as a software developer (C++ / Python), I have then oriented myself toward the Devops \"philosophy\" and worked on it for 1 year.<br>\
+  en: "After 2 years spent as a software developer (C++ / Python), I have then oriented myself toward the DevOps \"philosophy\" and worked on it for 1 year.<br>\
   During this phase I had the opportunity to improve my skills about various subjects like Docker, CI/CD pipelines and AWS.<br>\
   I'm currently looking to join a team where I could take benefits of my learned skills, improves them and discovers new horizons."
-  fr: "Après une expérience professionnelle de 2 ans en tant que développeur logiciel (C++ / Python), j'ai par la suite évolué en interne vers un poste de \"Ingénieur orienté Devops\" pendant 1 an.<br>\
+  fr: "Après une expérience professionnelle de 2 ans en tant que développeur logiciel (C++ / Python), j'ai par la suite évolué en interne vers un poste de \"Ingénieur orienté DevOps\" pendant 1 an.<br>\
   A travers cette expérience j'ai pu monté en compétences sur des sujets variés tels que Docker, les Pipelines CI/CD et AWS.<br>\
   Je cherche actuellement à rejoindre une équipe dans laquelle je pourrais mettre à profit mes compétences actuelles, les améliorer et continuer à découvrir de nouveaux horizons."
 not_available_text:
@@ -34,5 +34,5 @@ desired_job_text:
   en: "Desired job"
   fr: "Emploi souhaité"
 desired_job:
-  en: "Devops culture"
-  fr: "En lien avec la culture Devops"
+  en: "In connection with the DevOps culture"
+  fr: "En lien avec la culture DevOps"

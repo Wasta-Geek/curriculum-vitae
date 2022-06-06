@@ -8,7 +8,7 @@ content:
       en: Niryo / November 2018 - February 2022
     description:
       fr: 
-        - job_title: "Ingénieur Devops (Janvier 2021 - Février 2022)"
+        - job_title: "Ingénieur DevOps (Janvier 2021 - Février 2022)"
           description:
             - "Mise en place de pipelines de tests / analyseurs de codes visant à améliorer la qualité de code et la stabilité des logiciels (Gitlab CI)"
             - "Mise en place de pipelines Gitlab visant à faciliter le déploiement des différents logiciels (Gitlab CI)"
@@ -21,7 +21,7 @@ content:
             - "Développement de la partie API / logique d'exécution pour un prototype robot (C++)"
             - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
       en:
-        - job_title: "Devops Engineer (January 2021 - February 2022)"
+        - job_title: "DevOps Engineer (January 2021 - February 2022)"
           description:
             - "Setups tests pipelines for better code quality and software stability (Gitlab CI)"
             - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
