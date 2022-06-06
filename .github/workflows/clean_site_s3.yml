@@ -7,16 +7,6 @@ env:
   BASE_NAME_BUCKET: corentin-ducatez-resume-bucket
 
 jobs:
-  debug:
-    environment: staging
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Debug 1"
-        run: echo "${{ toJSON(github) }}" 
-      - name: "Debug 2"
-        run: echo "${{ github.event.pull_request.base.ref }} // ${{ github.ref_name }} // ${{ github.head_ref }} // ${{ github.event.pull_request.head.ref }}"
-      - name: "Debug 3"
-        run: echo "${{ github.event }}" 
   terraform:
     environment: staging
     runs-on: ubuntu-latest
