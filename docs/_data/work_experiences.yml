@@ -30,7 +30,7 @@ content:
         - job_title: R&D developer (September 2019 - October 2020)
           description:
             - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
-            - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ..."
+            - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... (Python / ROS)"
             - "Development of the API / execution flow for a robot prototype (C++)"
             - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
   cepi_management:
