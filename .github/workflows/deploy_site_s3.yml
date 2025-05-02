@@ -21,9 +21,9 @@ jobs:
         run: |
           echo "Running on branch ${{ github.ref }}"
           if [ "${{ github.ref }}" = "refs/heads/master" ]; then
-            echo "::set-output name=env_name::production"
+            echo "env_name=production" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=env_name::staging"
+            echo "env_name=staging" >> $GITHUB_OUTPUT
           fi
     outputs:
       environment_name: ${{ steps.branch_check.outputs.env_name }}
@@ -48,7 +48,7 @@ jobs:
       - name: Prepare tfvars file with needed variables
         run: |
           raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ github.ref_name }}"
-          echo "::set-output name=bucket_name::${raw_bucket_name////-}"
+          echo "bucket_name=${raw_bucket_name////-}" >> $GITHUB_OUTPUT
           echo "aws_credential = {
               AWS_ACCESS_KEY_ID     = \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
               AWS_SECRET_ACCESS_KEY = \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
@@ -110,7 +110,7 @@ jobs:
           echo -e "\naws_s3_url: http://$website_endpoint
           url: http://$website_endpoint
           domain: http://$website_endpoint" >> docs/_config.yml
-          echo "::set-output name=website_endpoint::http://$website_endpoint"
+          echo "website_endpoint=http://$website_endpoint" >> $GITHUB_OUTPUT
         id: set_website_endpoint
       - name: Jekyll build
         uses: actions/jekyll-build-pages@v1
