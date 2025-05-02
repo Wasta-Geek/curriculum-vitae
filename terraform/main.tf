@@ -19,13 +19,6 @@ resource "aws_s3_bucket" "main_bucket" {
   force_destroy = true
 }
 
-resource "aws_s3_bucket_acl" "bucket_acl" {
-  bucket = aws_s3_bucket.main_bucket.bucket
-  acl    = "public-read"
-
-  depends_on = [aws_s3_bucket_public_access_block.public_access]
-}
-
 resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
   bucket = aws_s3_bucket.main_bucket.bucket
 
@@ -49,6 +42,14 @@ resource "aws_s3_bucket_versioning" "versioning_enabled" {
 module "website_files" {
   source   = "hashicorp/dir/template"
   base_dir = "../docs/_site"
+}
+
+resource "aws_s3_bucket_ownership_controls" "ownership" {
+  bucket = aws_s3_bucket.main_bucket.bucket
+
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
