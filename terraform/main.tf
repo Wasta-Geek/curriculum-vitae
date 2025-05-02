@@ -49,6 +49,15 @@ module "website_files" {
   base_dir = "../docs/_site"
 }
 
+resource "aws_s3_bucket_public_access_block" "public_access" {
+  bucket = aws_s3_bucket.main_bucket.bucket
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 resource "aws_s3_bucket_policy" "policy_allow_public_access" {
   bucket = aws_s3_bucket.main_bucket.bucket
   policy = data.aws_iam_policy_document.policy_allow_public_access.json
