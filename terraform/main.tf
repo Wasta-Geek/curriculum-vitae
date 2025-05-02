@@ -91,6 +91,4 @@ resource "aws_s3_object" "website_object" {
   source       = each.value.source_path
   content_type = each.value.content_type
   etag         = each.value.digests.md5
-
-  acl = "public-read"
 }
