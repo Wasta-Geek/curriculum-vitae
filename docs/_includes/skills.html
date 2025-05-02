@@ -6,7 +6,7 @@
     <div class="row justify-content-evenly">
         <div class="col col-6">
             <h3 class="text-center">{{ site.data.skills["programming_languages_subsection"][language] }}</h3>
-            <ul>
+            <ul class ="card-columns" style="column-count: 2;">
                 {%- for program_language in site.data.skills["programming_languages_list"] -%}
                 <li>{{ program_language }}</li>
                 {%- endfor -%}
@@ -23,20 +23,20 @@
     </div>
     <div class="row justify-content-evenly">
         <div class="col col-6">
-            <h3 class="text-center">{{ site.data.skills["frameworks_subsection"][language] }}</h3>
-            <ul>
-                {%- for framework in site.data.skills["frameworks_list"] -%}
-                <li>{{ framework }}</li>
-                {%- endfor -%}
-            </ul>
-        </div>
-        <div class="col col-6">
             <h3 class="text-center">{{ site.data.skills["tools_subsection"][language] }}</h3>
-            <ul>
+            <ul class ="card-columns" style="column-count: 2;">
                 {%- for tool in site.data.skills["tools_list"] -%}
                 <li>{{ tool }}</li>
                 {%- endfor -%}
             </ul>
+        </div>
+        <div class="col col-6">
+            <!-- <h3 class="text-center">{{ site.data.skills["frameworks_subsection"][language] }}</h3>
+            <ul>
+                {%- for framework in site.data.skills["frameworks_list"] -%}
+                <li>{{ framework }}</li>
+                {%- endfor -%}
+            </ul> -->
         </div>
     </div>
 </div>
