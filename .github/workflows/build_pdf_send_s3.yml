@@ -20,7 +20,7 @@ jobs:
     container: 
       image: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
@@ -28,7 +28,7 @@ jobs:
       - name: Build EN pdf
         run: node ${{ env.SCRIPT_PATH }} language=en url=${{ inputs.URL }}
       - name: Archive PDF files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pdf-files
           path: /home/*.pdf
