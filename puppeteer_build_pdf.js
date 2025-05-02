@@ -14,7 +14,7 @@ const puppeteer = require('puppeteer');
 
   var url = "https://wasta-geek.github.io/curriculum-vitae/"
   var arg_url = process.argv.find( element => element.startsWith("url=") ) 
-  if (arg_language)
+  if (arg_language && arg_url)
   {
     url = arg_url.replace("url=", "")
   }
