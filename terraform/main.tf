@@ -22,6 +22,8 @@ resource "aws_s3_bucket" "main_bucket" {
 resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.main_bucket.bucket
   acl    = "public-read"
+
+  depends_on = [aws_s3_bucket_public_access_block.public_access]
 }
 
 resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
