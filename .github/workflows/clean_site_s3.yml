@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: hashicorp/setup-terraform@v2
       - name: Checkout files
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Prepare tfvars file with needed variables
         run: |
           raw_bucket_name="${{ env.BASE_NAME_BUCKET }}-${{ env.PR_REF_NAME }}"
