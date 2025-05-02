@@ -113,14 +113,14 @@ jobs:
           echo "website_endpoint=http://$website_endpoint" >> $GITHUB_OUTPUT
         id: set_website_endpoint
       - name: Jekyll build
-        uses: actions/jekyll-build-pages@v1
+        uses: actions/jekyll-build-pages@v1.0.11
         with:
           source: ./docs
           destination: ./docs/_site
           verbose: true
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive Website
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Resume website
           path: docs/_site/**
