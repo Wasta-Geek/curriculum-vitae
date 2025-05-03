@@ -33,7 +33,7 @@ jobs:
           name: pdf-files
           path: /home/*.pdf
   upload_pdf_to_s3:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
       - build_pdf_files
     container:
