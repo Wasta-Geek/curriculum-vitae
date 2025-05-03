@@ -71,7 +71,7 @@ content:
             - New functionalities and some ergonomy improvements
             - Bug fixes and pages loading time improvement
             - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
-    print: true
+    print: false
   promod:
     title:
       fr: Promod / Octobre 2015 - Décembre 2015
