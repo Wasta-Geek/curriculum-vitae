@@ -64,6 +64,8 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 resource "aws_s3_bucket_policy" "policy_allow_public_access" {
   bucket = aws_s3_bucket.main_bucket.bucket
   policy = data.aws_iam_policy_document.policy_allow_public_access.json
+
+  depends_on = [aws_s3_bucket_public_access_block.public_access]
 }
 
 data "aws_iam_policy_document" "policy_allow_public_access" {
