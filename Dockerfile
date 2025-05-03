@@ -26,7 +26,7 @@ RUN apt-get update \
 
 # Install puppeteer so it's available in the container.
 RUN npm init -y &&  \
-    npm i puppeteer \
+    npm i puppeteer@18.2.1 \
     && mkdir -p /home/pptruser/Downloads
 
 # Puppeteer user part was deleted because it prevents some github actions to runs properly

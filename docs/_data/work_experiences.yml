@@ -2,6 +2,26 @@ section_title:
   fr: Expériences professionnelles
   en: Work experiences
 content:
+  mindbaz / sweego:
+    title:
+      fr: Mindbaz && Sweego / Août 2022 - Avril 2025
+      en: Mindbaz && Sweego / August 2022 - April 2025
+    description:
+      fr:
+        - job_title: "Développeur Python Orienté Devops"
+          description:
+            - "Développement d'une API REST pour gérer la partie système d'informations de app.sweego.io (Python[FastAPI], Postgres, Keycloak, RabbitMQ)"
+            - "Déploiement et administration de machine virtuelles Linux (ansible)"
+            - "Développement de services de parsing automatisées de boîte mails (Rust, Postgres, Emailengine)"
+            - "Maintenance et mise à jours des pipelines de CI/CD et images Dockers (Gitlab CI)"
+      en:
+        - job_title: "Devops oriented Software developper"
+          description:
+            - "Conception of a REST API that manages the system information part of app.sweego.io (Python[FastAPI], Postgres, Keycloak, RabbitMQ)"
+            - "Deployment and administration of virtual machines under Linux (ansible)"
+            - "Development of mailbox automated parsing services (Rust, Postgres, Emailengine)"
+            - "Maintenance and upgrade of CI/CD pipelines and Docker images (Gitlab CI)"
+    print: true
   niryo:
     title:
       fr: Niryo / Novembre 2018 - Février 2022
@@ -33,6 +53,7 @@ content:
             - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... (Python / ROS)"
             - "Development of the API / execution flow for a robot prototype (C++)"
             - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
+    print: true
   cepi_management:
     title:
       fr: CEPI Management / Avril 2017 - Juillet 2017
@@ -50,6 +71,7 @@ content:
             - New functionalities and some ergonomy improvements
             - Bug fixes and pages loading time improvement
             - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
+    print: false
   promod:
     title:
       fr: Promod / Octobre 2015 - Décembre 2015
@@ -65,3 +87,4 @@ content:
           description:
             - Maintenance of all computers and electronics devices related to in-store sales
             - Migration of the whole IT infrastructure from Windows XP to Windows 7
+    print: false

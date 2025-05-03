@@ -7,12 +7,12 @@ hobbies_subsection:
 hobbies_list:
   en:
     - Music
+    - Climbing
     - Video games
-    - Hiking
   fr:
     - Musique
+    - Escalade
     - Jeux vidéos
-    - Randonnées
 languages_subsection:
   en: Languages
   fr: Langues

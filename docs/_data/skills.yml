@@ -5,17 +5,19 @@ programming_languages_subsection:
   en: Programming languages
   fr: Langages de programmation
 programming_languages_list:
-  - C/C++
   - Python
+  - C/C++
+  - Rust
   - Bash
   - Javascript
 tools_subsection:
   en: Tools
   fr: Outils
 tools_list:
-  - Gitlab CI
+  - Ansible
   - Docker
-  - AWS
+  - Gitlab CI
+  - Icinga
 frameworks_subsection:
   en: Frameworks
   fr: Frameworks
@@ -29,11 +31,9 @@ various_subsection:
 various_list:
   en:
     - Linux
+    - Basics network (DHCP, DNS, configuration ...)
     - Raspberry Pi
-    - Basics knowledges of network (IP, DHCP, DNS, subnet mask, gateway, ...)
-    - MQTT
   fr:
     - Linux
+    - Bases en réseau (DHCP, DNS, configuration, ...)
     - Raspberry Pi
-    - Connaissances de bases en réseau (IP, DHCP, DNS, masque de sous réseau, passerelle, ...)
-    - MQTT

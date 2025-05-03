@@ -20,7 +20,7 @@ jobs:
     container: 
       image: ghcr.io/wasta-geek/puppeteer_build_pdf:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
@@ -28,7 +28,7 @@ jobs:
       - name: Build EN pdf
         run: node ${{ env.SCRIPT_PATH }} language=en url=${{ inputs.URL }}
       - name: Archive PDF files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pdf-files
           path: /home/*.pdf
@@ -37,12 +37,18 @@ jobs:
     needs:
       - build_pdf_files
     container:
-      image: amazon/aws-cli
+      image: node:23-bullseye
     environment:
       name: ${{ inputs.ENVIRONMENT_NAME }}
     env: 
       AWS_EC2_METADATA_DISABLED: true
     steps:
+      - name: Install AWS cli
+        run: |
+          curl -L -o install-aws.sh https://raw.githubusercontent.com/unfor19/install-aws-cli-action/master/entrypoint.sh
+          chmod +x install-aws.sh
+          ./install-aws.sh "v2" "amd64"
+          rm install-aws.sh  
       - name: Register with credentials
         run: |
           aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
@@ -50,7 +56,7 @@ jobs:
           aws configure set region "${{ secrets.AWS_DEFAULT_REGION }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
           aws configure set output "${{ secrets.AWS_DEFAULT_OUTPUT }}" --profile ${{ inputs.ENVIRONMENT_NAME }}
       - name: Download a single artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.3.0
         with:
           name: pdf-files
       - name: Upload FR pdf

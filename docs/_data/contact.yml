@@ -15,12 +15,8 @@ email_text:
   fr: "e-mail"
 email: "corentin_ducatez@hotmail.fr"
 profile:
-  en: "After 2 years spent as a software developer (C++ / Python), I have then oriented myself toward the DevOps \"philosophy\" and worked on it for 1 year.<br>\
-  During this phase I had the opportunity to improve my skills about various subjects like Docker, CI/CD pipelines and AWS.<br>\
-  I'm currently looking to join a team where I could take benefits of my learned skills, improves them and discovers new horizons."
-  fr: "Après une expérience professionnelle de 2 ans en tant que développeur logiciel (C++ / Python), j'ai par la suite évolué en interne vers un poste de \"Ingénieur orienté DevOps\" pendant 1 an.<br>\
-  A travers cette expérience j'ai pu monté en compétences sur des sujets variés tels que Docker, les Pipelines CI/CD et AWS.<br>\
-  Je cherche actuellement à rejoindre une équipe dans laquelle je pourrais mettre à profit mes compétences actuelles, les améliorer et continuer à découvrir de nouveaux horizons."
+  en: "Software Developer with a passion for DevOps oriented missions, I'm currently looking to join a team where I could take benefits of my skills, improves them and discovers new horizons."
+  fr: "Développeur logiciel avec une appétence pour les tâches en lien avec l'esprit DevOps, je cherche actuellement à rejoindre une équipe dans laquelle je pourrais mettre à profit mes compétences actuelles, les améliorer et continuer à découvrir de nouveaux horizons."
 not_available_text:
   en: "Unwilling to accept a new job"
   fr: "Peu enclin à changer d'emploi"
@@ -28,11 +24,5 @@ availability_text:
   en: "Availability"
   fr: "Disponibilité"
 availability_date:
-  en: "From July 2022"
-  fr: "A partir de Juillet 2022"
-desired_job_text:
-  en: "Desired job"
-  fr: "Emploi souhaité"
-desired_job:
-  en: "In connection with the DevOps culture"
-  fr: "En lien avec la culture DevOps"
+  en: "From end of May 2025"
+  fr: "A partir de fin Mai 2025"
