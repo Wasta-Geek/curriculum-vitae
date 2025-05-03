@@ -21,6 +21,7 @@ content:
             - "Deployment and administration of virtual machines under Linux (ansible)"
             - "Development of mailbox automated parsing services (Rust, Postgres, Emailengine)"
             - "Maintenance and upgrade of CI/CD pipelines and Docker images (Gitlab CI)"
+    print: true
   niryo:
     title:
       fr: Niryo / Novembre 2018 - Février 2022
@@ -52,6 +53,7 @@ content:
             - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... (Python / ROS)"
             - "Development of the API / execution flow for a robot prototype (C++)"
             - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
+    print: true
   cepi_management:
     title:
       fr: CEPI Management / Avril 2017 - Juillet 2017
@@ -69,6 +71,7 @@ content:
             - New functionalities and some ergonomy improvements
             - Bug fixes and pages loading time improvement
             - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
+    print: true
   promod:
     title:
       fr: Promod / Octobre 2015 - Décembre 2015
@@ -84,3 +87,4 @@ content:
           description:
             - Maintenance of all computers and electronics devices related to in-store sales
             - Migration of the whole IT infrastructure from Windows XP to Windows 7
+    print: false
