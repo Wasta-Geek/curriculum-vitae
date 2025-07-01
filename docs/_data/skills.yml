@@ -22,7 +22,7 @@ frameworks_subsection:
   en: Frameworks
   fr: Frameworks
 frameworks_list:
-  - ROS (Robot Operating System)
+  - ROS 1 (Robot Operating System)
   - Angular
   - Qt (QML)
 various_subsection:
