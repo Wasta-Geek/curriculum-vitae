@@ -9,7 +9,7 @@
     <h3>{{ company_object.title[language] }}</h3>
     <dl>
         {%- for work_subpart in company_object.description[language] -%}
-        <dt style="margin-bottom: 10px">{{ work_subpart.job_title }}</dt>
+        <dt style="margin-bottom: 5px; margin-top: 5px;">{{ work_subpart.job_title }}</dt>
         {%- for description_line in work_subpart.description -%}
         <dd style="margin-bottom: 2px">{{ description_line }}</dd>
         {%- endfor -%}
