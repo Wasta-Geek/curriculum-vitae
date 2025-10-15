@@ -6,22 +6,18 @@
     <div class="container">
         <div class="row justify-content-evenly">
             <div class="col">
-                <h3 class="text-center">{{ site.data.about_me["languages_subsection"][language] }}</h3>
-                <ul>
+                <h3 class="text-center" style="margin-bottom: 10px;">{{ site.data.about_me["languages_subsection"][language] }}</h3>
                     {%- for language_object in site.data.about_me["languages_list"] -%}
-                    <li> <img class="flag_img_icon" src="{{ "/assets/svg/" | absolute_url }}{{ language_object[1]['icon'] }}">
+                    <p> <img class="flag_img_icon" src="{{ "/assets/svg/" | absolute_url }}{{ language_object[1]['icon'] }}">
                         {{ language_object[1]["name"][language] }}
-                        : {{ language_object[1]["skill"][language] }}</li>
+                        : {{ language_object[1]["skill"][language] }}</p>
                     {%- endfor -%}
-                </ul>
             </div>
             <div class="col">
-                <h3 class="text-center">{{ site.data.about_me["hobbies_subsection"][language] }}</h3>
-                <ul>
+                <h3 class="text-center" style="margin-bottom: 10px;">{{ site.data.about_me["hobbies_subsection"][language] }}</h3>
                     {%- for hobby in site.data.about_me["hobbies_list"][language] -%}
-                    <li>{{ hobby }}</li>
+                    <p>{{ hobby }}</p>
                     {%- endfor -%}
-                </ul>
             </div>
         </div>
     </div>
