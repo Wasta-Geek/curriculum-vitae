@@ -6,10 +6,10 @@ programming_languages_subsection:
   fr: Langages de programmation
 programming_languages_list:
   - Python
-  - C/C++
   - Rust
-  - Bash
+  - C/C++
   - Javascript
+  - Bash
 tools_subsection:
   en: Tools
   fr: Outils
@@ -17,23 +17,20 @@ tools_list:
   - Ansible
   - Docker
   - Gitlab CI
-  - Icinga
+  - Github Actions
+  - Google.com :)
 frameworks_subsection:
   en: Frameworks
   fr: Frameworks
 frameworks_list:
-  - ROS 1 (Robot Operating System)
-  - Angular
-  - Qt (QML)
-various_subsection:
-  en: Various
-  fr: Divers
-various_list:
+  - "<b>Python:</b>&nbsp; FastAPI / Flask"
+  - "<b>Rust:</b>&nbsp; Axum / Tauri"
+  - "<b>Front:</b>&nbsp; React"
+hobby_project_subsection:
+  en: Hobby project
+  fr: Projet loisir
+hobby_project_list:
   en:
-    - Linux
-    - Basics network (DHCP, DNS, configuration ...)
-    - Raspberry Pi
+    - "<b><i>[Rust / React]</b></i> <b>Soundboard:</b> Application with sound and voice effect management"
   fr:
-    - Linux
-    - Bases en réseau (DHCP, DNS, configuration, ...)
-    - Raspberry Pi
+    - "<b><i>[Rust / React]</b></i> <b>Soundboard:</b> Application de gestion de son et d'effets de voix"

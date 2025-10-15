@@ -4,23 +4,23 @@ section_title:
 content:
   mindbaz / sweego:
     title:
-      fr: Mindbaz && Sweego / Août 2022 - Avril 2025
-      en: Mindbaz && Sweego / August 2022 - April 2025
+      fr: Mindbaz et Sweego / Août 2022 - Avril 2025
+      en: Mindbaz and Sweego / August 2022 - April 2025
     description:
       fr:
-        - job_title: "Développeur Python Orienté Devops"
+        - job_title: "Développeur Backend Python / ingénieur DevOps"
           description:
-            - "Développement d'une API REST pour gérer la partie système d'informations de app.sweego.io (Python[FastAPI], Postgres, Keycloak, RabbitMQ)"
-            - "Déploiement et administration de machine virtuelles Linux (ansible)"
-            - "Développement de services de parsing automatisées de boîte mails (Rust, Postgres, Emailengine)"
-            - "Maintenance et mise à jours des pipelines de CI/CD et images Dockers (Gitlab CI)"
+            - "API développeur et du système d'information de la plateforme SAAS <a href=\"http://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
+            - "Déploiement et administration de machine virtuelles Linux <b><i>(ansible)</b></i>"
+            - "Développement de services de parsing automatisées de boîte mails <b><i>(Rust, Postgres, Emailengine)</b></i>"
+            - "Maintenance et mise à jours des pipelines de CI/CD et images Dockers <b><i>(Gitlab CI)</b></i>"
       en:
-        - job_title: "Devops oriented Software developper"
+        - job_title: "Python Backend developer / DevOps Engineer"
           description:
-            - "Conception of a REST API that manages the system information part of app.sweego.io (Python[FastAPI], Postgres, Keycloak, RabbitMQ)"
-            - "Deployment and administration of virtual machines under Linux (ansible)"
-            - "Development of mailbox automated parsing services (Rust, Postgres, Emailengine)"
-            - "Maintenance and upgrade of CI/CD pipelines and Docker images (Gitlab CI)"
+            - "API: System management and Developer API of SAAS platform <a href=\"http://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
+            - "Deployment and administration of virtual machines under Linux <b><i>(ansible)</b></i>"
+            - "Development of mailbox automated parsing services <b><i>(Rust, Postgres, Emailengine)</b></i>"
+            - "Maintenance and upgrade of CI/CD pipelines and Docker images <b><i>(Gitlab CI)</b></i>"
     print: true
   niryo:
     title:
@@ -30,29 +30,27 @@ content:
       fr: 
         - job_title: "Ingénieur DevOps (Janvier 2021 - Février 2022)"
           description:
-            - "Mise en place de pipelines de tests / analyseurs de codes visant à améliorer la qualité de code et la stabilité des logiciels (Gitlab CI)"
-            - "Mise en place de pipelines Gitlab visant à faciliter le déploiement des différents logiciels (Gitlab CI)"
-            - "Création d'images Docker pour uniformiser / déployer les environnements de développements (Docker)"
-            - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes (EC2, s3, route 53, AWS IoT core)"
+            - "Mise en place de pipelines de tests, d'analyses de code et de déploiement continue <b><i>(Gitlab CI)</b></i>"
+            - "Création d'images Docker pour uniformiser / déployer les environnements de développements <b><i>(Docker)</b></i>"
+            - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes <b><i>(AWS EC2, s3, route 53, AWS IoT core)</b></i>"
         - job_title: "Développeur R&D (Novembre 2018 - Octobre 2020)"
           description:
-            - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve (C++ / QT - QML)"
-            - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... (Python / ROS)"
-            - "Développement de la partie API / logique d'exécution pour un prototype robot (C++)"
-            - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro (C++ / Qt - QML)"
+            - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve <b><i>(C++ / Qt - QML)</b></i>"
+            - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... <b><i>(Python / ROS)</b></i>"
+            - "Développement de la partie API / logique d'exécution pour un prototype robot <b><i>(C++)</b></i>"
+            - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro <b><i>(C++ / Qt - QML)</b></i>"
       en:
         - job_title: "DevOps Engineer (January 2021 - February 2022)"
           description:
-            - "Setups tests pipelines for better code quality and software stability (Gitlab CI)"
-            - "Creation of Gitlab CI pipelines in order to ease the deployment of the differents softwares (Gitlab CI)"
-            - "Builds of docker images to uniformize / deploys development environments (Docker)"
-            - "Maintenance of the existing cloud hosting infrastructure (AWS EC2, s3, route 53, AWS IoT core)"
+            - "Pipeline setup for test, software quality and continuous deployment <b><i>(Gitlab CI)</b></i>"
+            - "Builds of docker images to uniformize / deploys development environments <b><i>(Docker)</b></i>"
+            - "Maintenance of the existing cloud hosting infrastructure <b><i>(AWS EC2, s3, route 53, AWS IoT core)</b></i>"
         - job_title: R&D developer (November 2018 - October 2020)
           description:
-            - "Development of an HMI to control a robotic cell in an end of line packaging context (C++ / Qt - QML)"
-            - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... (Python / ROS)"
-            - "Development of the API / execution flow for a robot prototype (C++)"
-            - "Development from scratch of a HMI prototype aimed to controls a robot (C++ / Qt - QML)"
+            - "Development of an HMI to control a robotic cell in an end of line packaging context <b><i>(C++ / Qt - QML)</b></i>"
+            - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... <b><i>(Python / ROS)</b></i>"
+            - "Development of the API / execution flow for a robot prototype <b><i>(C++)</b></i>"
+            - "Development from scratch of a HMI prototype aimed to controls a robot <b><i>(C++ / Qt - QML)</b></i>"
     print: true
   cepi_management:
     title:
@@ -62,14 +60,14 @@ content:
       fr:
         - job_title: "[stage] Développeur Web"
           description:
-            - Ajout de fonctionnalités et amélioration de l'ergonomie
-            - Correction de bugs et amélioration de la vitesse de chargement des pages
-            - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels)
+            - Ajout de fonctionnalités et amélioration de l'ergonomie sur l'ERP interne <b><i>(php)</b></i>
+            - Correction de bugs et amélioration de la vitesse de chargement des pages du site actuel <b><i>(Wordpress)</b></i>
+            - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels) <b><i>(Wordpress)</b></i>
       en:
         - job_title: "[internship] Web developer"
           description:
-            - New functionalities and some ergonomy improvements
-            - Bug fixes and pages loading time improvement
+            - New functionalities and some ergonomy improvements on internal ERP <b><i>(php)</b></i>
+            - Bug fixes and pages loading time improvement on current website <b><i>(Wordpress)</b></i>
             - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
     print: false
   promod:
