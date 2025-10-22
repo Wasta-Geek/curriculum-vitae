@@ -17,7 +17,13 @@
 
     a
     {
-        color: red !important;
+        color: white;
+        text-decoration: none;
+    }
+
+    a.dark_link
+    {
+        color: black;
     }
 
     .left_part_resume_content
