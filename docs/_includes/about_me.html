@@ -1,6 +1,6 @@
 {%- assign language = page.lang -%}
 
-<div class="container col left_part_resume_content">
+<div class="container col left_part_resume_content about_me">
     <h2>{{ site.data.about_me["section_title"][language] }}</h2>
 
     <div class="container">
@@ -16,7 +16,7 @@
             <div class="col">
                 <h3 class="text-center" style="margin-bottom: 10px;">{{ site.data.about_me["hobbies_subsection"][language] }}</h3>
                     {%- for hobby in site.data.about_me["hobbies_list"][language] -%}
-                    <p>{{ hobby }}</p>
+                    <p class="mb-1">{{ hobby }}</p>
                     {%- endfor -%}
             </div>
         </div>
