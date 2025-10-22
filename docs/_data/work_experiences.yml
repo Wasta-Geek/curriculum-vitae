@@ -1,5 +1,5 @@
 section_title:
-  fr: Expériences professionnelles
+  fr: Expériences professionnellesssssssssss
   en: Work experiences
 content:
   mindbaz / sweego:
@@ -10,14 +10,14 @@ content:
       fr:
         - job_title: "Développeur Backend Python / ingénieur DevOps"
           description:
-            - "API développeur et du système d'information de la plateforme SAAS <a href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
+            - "API développeur et du système d'information de la plateforme SAAS <a class=\"dark_link\" href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
             - "Déploiement et administration de machine virtuelles Linux <b><i>(ansible)</b></i>"
             - "Développement de services de parsing automatisées de boîte mails <b><i>(Rust, Postgres, Emailengine)</b></i>"
             - "Maintenance et mise à jours des pipelines de CI/CD et images Dockers <b><i>(Gitlab CI)</b></i>"
       en:
         - job_title: "Python Backend developer / DevOps Engineer"
           description:
-            - "API: System management and Developer API of SAAS platform <a href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
+            - "API: System management and Developer API of SAAS platform <a class=\"dark_link\" href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
             - "Deployment and administration of virtual machines under Linux <b><i>(ansible)</b></i>"
             - "Development of mailbox automated parsing services <b><i>(Rust, Postgres, Emailengine)</b></i>"
             - "Maintenance and upgrade of CI/CD pipelines and Docker images <b><i>(Gitlab CI)</b></i>"

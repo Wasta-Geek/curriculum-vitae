@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 (async function printPDF() {
+  // Script parameter: language
   var language = "en"
   var arg_language = process.argv.find( element => element.startsWith("language=") ) 
   if (arg_language)
@@ -12,7 +13,8 @@ const puppeteer = require('puppeteer');
     console.log(`No language provided, language set to '${language}' by default`)
   }
 
-  var url = "https://wasta-geek.github.io/curriculum-vitae/"
+  // Script parameter: url
+  var url = `https://wasta-geek.github.io/curriculum-vitae/${language}`
   var arg_url = process.argv.find( element => element.startsWith("url=") ) 
   if (arg_language && arg_url)
   {
@@ -23,13 +25,28 @@ const puppeteer = require('puppeteer');
     console.log(`No url provided, url set to '${url}' by default`)
   }
 
-  const pdf_path = `/home/${ language }.pdf`
+  // Script parameter: pdf output folder
+  var output_folder = "/home"
+  var arg_output_folder = process.argv.find( element => element.startsWith("output_folder=") ) 
+  if (arg_output_folder)
+  {
+    output_folder = arg_output_folder.replace("output_folder=", "")
+  }
+  else
+  {
+    console.log(`No output folder provided, output folder set to '${output_folder}' by default`)
+  }
+
+  // Variables related to browser
+  const pdf_path = `${output_folder}/${ language }.pdf`
   const browser = await puppeteer.launch({
     headless: true,
     args:['--no-sandbox'] });
   
   const page = await browser.newPage();
-  await page.goto(`${ url }/${ language}`, { waitUntil: 'networkidle0' }).catch(async function (error) {
+  
+  // Browser to url
+  await page.goto(`${ url }`, { waitUntil: 'networkidle0' }).catch(async function (error) {
     console.log(error)
     await browser.close();
     process.exit(1)
@@ -38,6 +55,8 @@ const puppeteer = require('puppeteer');
     'Accept-Charset': 'utf-8',
     'Content-Type': 'text/html; charset=utf-8',
   })
+
+  // Generate PDF
   const pdf = await page.pdf(
     {
       path: pdf_path,

@@ -20,15 +20,15 @@
                 <span class="username">{{ site.github_username| escape }}</span></a>
         </div>
     </div>
-    <img class="rounded-circle portrait-img col-6 mb-4 mx-auto" src="{{ "/assets/images/portrait.jpg" | absolute_url }}">
+    <img class="rounded-circle portrait-img col-6 mt-4 mb-4 mx-auto" src="{{ "/assets/images/portrait.jpg" | absolute_url }}">
     {%- if site.seek_a_job -%}
-        <div class="mb-3 card bg-dark text-light">
+        <div class="mb-3 bg-dark text-light">
             <div class="card-body">
                 <div><b>{{ site.data.contact["availability_text"][language] }} : </b>{{ site.data.contact["availability_date"][language] }}</div>
             </div>
         </div>
     {%- else -%}
-        <div class="mb-3 card bg-secondary text-light d-print-none">
+        <div class="mb-3 bg-secondary text-light d-print-none">
             <div class="card-body">
                 <div><b>{{ site.data.contact["availability_text"][language] }} : </b>{{ site.data.contact["not_available_text"][language] }}</div>
             </div>

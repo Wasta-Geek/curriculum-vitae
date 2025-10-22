@@ -13,7 +13,7 @@ on:
         required: true
 
 env:
-  SCRIPT_PATH: /home/puppeteer_build_pdf.js
+  SCRIPT_PATH: ./puppeteer_build_pdf.js
 jobs:
   build_pdf_files:
     runs-on: ubuntu-latest
