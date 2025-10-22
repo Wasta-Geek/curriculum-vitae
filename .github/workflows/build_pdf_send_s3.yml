@@ -24,9 +24,9 @@ jobs:
         with:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Build FR pdf
-        run: node ${{ env.SCRIPT_PATH }} language=fr url=${{ inputs.URL }}
+        run: node ${{ env.SCRIPT_PATH }} language=fr url=${{ inputs.URL }}/fr
       - name: Build EN pdf
-        run: node ${{ env.SCRIPT_PATH }} language=en url=${{ inputs.URL }}
+        run: node ${{ env.SCRIPT_PATH }} language=en url=${{ inputs.URL }}/en
       - name: Archive PDF files
         uses: actions/upload-artifact@v4
         with:
