@@ -33,11 +33,11 @@ content:
             - "Mise en place de pipelines de tests, d'analyses de code et de déploiement continue <b><i>(Gitlab CI)</b></i>"
             - "Création d'images Docker pour uniformiser / déployer les environnements de développements <b><i>(Docker)</b></i>"
             - "Gestion de l'infrastructure d'hébergement cloud AWS déjà existantes <b><i>(AWS EC2, s3, route 53, AWS IoT core)</b></i>"
-        - job_title: "Développeur R&D (Novembre 2018 - Octobre 2020)"
+        - job_title: "Développeur R&D (Novembre 2018 - Janvier 2021)"
           description:
             - "Développement d'une IHM de contrôle d'une cellule robotique servant à du conditionnement de boîtes de conserve <b><i>(C++ / Qt - QML)</b></i>"
             - "Développement de la partie \"haut niveau\" d'un robot commercialisé: API, gestion des programmes, nouvelles fonctionnalités, ... <b><i>(Python / ROS)</b></i>"
-            - "Développement de la partie API / logique d'exécution pour un prototype robot <b><i>(C++)</b></i>"
+            - "Développement de la partie API + logique d'exécution pour un prototype robot <b><i>(C++)</b></i>"
             - "Développement d'un prototype d'IHM de contrôle robotique en partant de zéro <b><i>(C++ / Qt - QML)</b></i>"
       en:
         - job_title: "DevOps Engineer (January 2021 - February 2022)"
@@ -45,11 +45,11 @@ content:
             - "Pipeline setup for test, software quality and continuous deployment <b><i>(Gitlab CI)</b></i>"
             - "Builds of docker images to uniformize / deploys development environments <b><i>(Docker)</b></i>"
             - "Maintenance of the existing cloud hosting infrastructure <b><i>(AWS EC2, s3, route 53, AWS IoT core)</b></i>"
-        - job_title: R&D developer (November 2018 - October 2020)
+        - job_title: R&D developer (November 2018 - January 2021)
           description:
             - "Development of an HMI to control a robotic cell in an end of line packaging context <b><i>(C++ / Qt - QML)</b></i>"
             - "Conception of the \"high level\" part of a commercialized robot: API, execution flows, new features, ... <b><i>(Python / ROS)</b></i>"
-            - "Development of the API / execution flow for a robot prototype <b><i>(C++)</b></i>"
+            - "Development of the API + execution flow for a robot prototype <b><i>(C++)</b></i>"
             - "Development from scratch of a HMI prototype aimed to controls a robot <b><i>(C++ / Qt - QML)</b></i>"
     print: true
   cepi_management:
