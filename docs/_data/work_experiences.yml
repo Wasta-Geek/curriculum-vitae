@@ -52,37 +52,37 @@ content:
             - "Development of the API + execution flow for a robot prototype <b><i>(C++)</b></i>"
             - "Development from scratch of a HMI prototype aimed to controls a robot <b><i>(C++ / Qt - QML)</b></i>"
     print: true
-  cepi_management:
-    title:
-      fr: CEPI Management / Avril 2017 - Juillet 2017
-      en: CEPI Management / April 2017 - July 2017
-    description:
-      fr:
-        - job_title: "[stage] Développeur Web"
-          description:
-            - Ajout de fonctionnalités et amélioration de l'ergonomie sur l'ERP interne <b><i>(php)</b></i>
-            - Correction de bugs et amélioration de la vitesse de chargement des pages du site actuel <b><i>(Wordpress)</b></i>
-            - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels) <b><i>(Wordpress)</b></i>
-      en:
-        - job_title: "[internship] Web developer"
-          description:
-            - New functionalities and some ergonomy improvements on internal ERP <b><i>(php)</b></i>
-            - Bug fixes and pages loading time improvement on current website <b><i>(Wordpress)</b></i>
-            - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
-    print: false
-  promod:
-    title:
-      fr: Promod / Octobre 2015 - Décembre 2015
-      en: Promod / October 2015 - December 2015
-    description:
-      fr:
-        - job_title: "[stage] Technicien de maintenance en Informatique"
-          description:
-            - Maintenance des systèmes informatiques et pseudo-électronique liés à la vente en magasin.
-            - Migration du parc informatique de Windows XP à Windows 7.
-      en:
-        - job_title: "[internship] Computer maintenance technician"
-          description:
-            - Maintenance of all computers and electronics devices related to in-store sales
-            - Migration of the whole IT infrastructure from Windows XP to Windows 7
-    print: false
+  # cepi_management:
+  #   title:
+  #     fr: CEPI Management / Avril 2017 - Juillet 2017
+  #     en: CEPI Management / April 2017 - July 2017
+  #   description:
+  #     fr:
+  #       - job_title: "[stage] Développeur Web"
+  #         description:
+  #           - Ajout de fonctionnalités et amélioration de l'ergonomie sur l'ERP interne <b><i>(php)</b></i>
+  #           - Correction de bugs et amélioration de la vitesse de chargement des pages du site actuel <b><i>(Wordpress)</b></i>
+  #           - Réflexion et élaboration du nouveau site internet (design, ergonomie, résoudre les problèmes actuels) <b><i>(Wordpress)</b></i>
+  #     en:
+  #       - job_title: "[internship] Web developer"
+  #         description:
+  #           - New functionalities and some ergonomy improvements on internal ERP <b><i>(php)</b></i>
+  #           - Bug fixes and pages loading time improvement on current website <b><i>(Wordpress)</b></i>
+  #           - Complete redesign of the new website (design, ergonomy, fix current problems, ...)
+  #   print: false
+  # promod:
+  #   title:
+  #     fr: Promod / Octobre 2015 - Décembre 2015
+  #     en: Promod / October 2015 - December 2015
+  #   description:
+  #     fr:
+  #       - job_title: "[stage] Technicien de maintenance en Informatique"
+  #         description:
+  #           - Maintenance des systèmes informatiques et pseudo-électronique liés à la vente en magasin.
+  #           - Migration du parc informatique de Windows XP à Windows 7.
+  #     en:
+  #       - job_title: "[internship] Computer maintenance technician"
+  #         description:
+  #           - Maintenance of all computers and electronics devices related to in-store sales
+  #           - Migration of the whole IT infrastructure from Windows XP to Windows 7
+  #   print: false
