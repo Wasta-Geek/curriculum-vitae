@@ -19,7 +19,7 @@ content:
           description:
             - "API: System management (account settings, subscription, payment, ...) and Developer API of SAAS platform <a class=\"dark_link\" href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
             - "Deployment and administration of virtual machines under Linux <b><i>(ansible)</b></i>"
-            - "Development of mailbox automated parsing services <b><i>(Rust, Postgres, Emailengine)</b></i>"
+            - "Development of automated mailbox parsing services <b><i>(Rust, Postgres, Emailengine)</b></i>"
             - "Maintenance and upgrade of CI/CD pipelines and Docker images <b><i>(Gitlab CI)</b></i>"
     print: true
   niryo:

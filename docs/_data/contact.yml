@@ -15,8 +15,8 @@ email_text:
   fr: "e-mail"
 email: "corentin_ducatez@hotmail.fr"
 profile:
-  en: "Currently looking for a Backend developer position with (ideally) some DevOps oriented tasks included. <br>But I stay open to positions where I would be a good match for."
-  fr: "A la recherche d'un poste de développeur Backend avec (idéalement) quelques tâches liés aux principes DevOps. <br>Je reste cependant ouvert à d'autres postes pour lequel mon expérience serait pertinente."
+  en: "Currently looking for a Backend or Rust developer position with (ideally) some DevOps oriented tasks included. <br>But I stay open to positions where I would be a good match for."
+  fr: "A la recherche d'un poste de développeur Backend ou Rust avec (idéalement) quelques tâches liés aux principes DevOps. <br>Je reste cependant ouvert à d'autres postes pour lequel mon expérience serait pertinente."
 not_available_text:
   en: "Unwilling to accept a new job"
   fr: "Peu enclin à changer d'emploi"
