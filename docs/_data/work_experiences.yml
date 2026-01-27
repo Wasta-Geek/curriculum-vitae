@@ -8,14 +8,14 @@ content:
       en: Mindbaz and Sweego / August 2022 - April 2025
     description:
       fr:
-        - job_title: "Développeur Backend Python / ingénieur DevOps"
+        - job_title: "Développeur Backend Python | Rust / ingénieur DevOps"
           description:
             - "Développement d'une API développeur, de l'API du système d'information (gestion de compte, abonnement, paiement, ...) de la plateforme SAAS <a class=\"dark_link\" href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
             - "Déploiement et administration de machines virtuelles Linux <b><i>(ansible)</b></i>"
             - "Développement de services de parsing automatisées de boîte mails <b><i>(Rust, Postgres, Emailengine)</b></i>"
             - "Maintenance et mise à jours des pipelines de CI/CD et images Docker <b><i>(Gitlab CI)</b></i>"
       en:
-        - job_title: "Python Backend developer / DevOps Engineer"
+        - job_title: "Python Backend | Rust developer / DevOps Engineer"
           description:
             - "API: System management (account settings, subscription, payment, ...) and Developer API of SAAS platform <a class=\"dark_link\" href=\"https://sweego.io\">Sweego</a> <b><i>(Python[FastAPI], Postgres, Keycloak, RabbitMQ)</b></i>"
             - "Deployment and administration of virtual machines under Linux <b><i>(ansible)</b></i>"
