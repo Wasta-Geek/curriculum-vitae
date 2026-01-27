@@ -26,6 +26,20 @@
         color: black;
     }
 
+    .left_part_resume
+    {
+        width: 30% !important;
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+
+    .right_part_resume
+    {
+        width: 70% !important;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
     .left_part_resume_content
     {
         padding-left: 5px !important;
