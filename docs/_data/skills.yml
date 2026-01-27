@@ -33,4 +33,4 @@ hobby_project_list:
   en:
     - "<b><i>[Rust / React]</b></i> <b>Soundboard:</b> Application with sound and voice effect management"
   fr:
-    - "<b><i>[Rust / React]</b></i> <b>Soundboard:</b> Application de gestion de son et d'effets de voix"
+    - "<b><i>[Rust / React]</b></i> <b>Soundboard:</b> Application de gestion de sons et d'effets de voix"
